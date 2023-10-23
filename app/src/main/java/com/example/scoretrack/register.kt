@@ -1,6 +1,5 @@
 package com.example.scoretrack
 
-import MyDBHelper
 import android.content.ContentValues
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,7 +12,7 @@ class register : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
 
-        var btnRegister: Button = findViewById(R.id.btRegister);
+        val btnRegister: Button = findViewById(R.id.btRegister);
 
         btnRegister.setOnClickListener {
             insertRegister();
