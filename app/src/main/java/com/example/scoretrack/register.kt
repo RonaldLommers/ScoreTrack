@@ -1,6 +1,8 @@
 package com.example.scoretrack
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -20,6 +22,7 @@ class register : AppCompatActivity() {
 
     }
 
+    @SuppressLint("Recycle")
     fun insertRegister(){
         val helper = MyDBHelper(applicationContext)
         val db = helper.readableDatabase
@@ -38,11 +41,7 @@ class register : AppCompatActivity() {
 
         db.insert("USERS",null,cv)
 
-        editTextName.setText("")
-        editTextSurname.setText("")
-        editTextMail.setText("")
-        editTextPassword.setText("")
-
-        editTextName.requestFocus()
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 }
