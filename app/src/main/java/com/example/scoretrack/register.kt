@@ -1,11 +1,11 @@
 package com.example.scoretrack
 
+import MyDBHelper
 import android.content.ContentValues
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import com.example.scoretrack.R
 
 class register : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,15 +22,15 @@ class register : AppCompatActivity() {
     }
 
     fun insertRegister(){
-        var helper = MyDBHelper(applicationContext)
-        var db = helper.readableDatabase
+        val helper = MyDBHelper(applicationContext)
+        val db = helper.readableDatabase
         var rs = db.rawQuery("SELECT * FROM USERS", null)
-        var cv = ContentValues()
+        val cv = ContentValues()
 
-        var editTextName: EditText = findViewById(R.id.etName);
-        var editTextSurname: EditText = findViewById(R.id.etSurname);
-        var editTextMail: EditText = findViewById(R.id.etMail);
-        var editTextPassword: EditText = findViewById(R.id.etPassword);
+        val editTextName: EditText = findViewById(R.id.etName);
+        val editTextSurname: EditText = findViewById(R.id.etSurname);
+        val editTextMail: EditText = findViewById(R.id.etMail);
+        val editTextPassword: EditText = findViewById(R.id.etPassword);
 
         cv.put("NAME", editTextName.text.toString())
         cv.put("SURNAME", editTextSurname.text.toString())

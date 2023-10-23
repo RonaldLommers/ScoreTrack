@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPassword"
-        android:hint="wachtwoord"/>
+        android:hint="wachtwoord" />
 
     <Button
         android:id="@+id/btRegister"
