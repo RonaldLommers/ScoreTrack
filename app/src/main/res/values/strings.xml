@@ -5,4 +5,8 @@
     <string name="mail">mail</string>
     <string name="wachtwoord">wachtwoord</string>
     <string name="register">Register</string>
+    <string name="voornaam">voornaam</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="login">Login</string>
 </resources>
