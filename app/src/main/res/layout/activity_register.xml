@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="naam" />
+        android:hint="@string/naam"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/etSurname"
@@ -24,7 +25,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="achternaam" />
+        android:hint="@string/achternaam"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/etMail"
@@ -34,7 +36,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:hint="mail"/>
+        android:hint="@string/mail"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/etPassword"
@@ -44,7 +47,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPassword"
-        android:hint="wachtwoord" />
+        android:hint="@string/wachtwoord"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/btRegister"
@@ -52,5 +56,5 @@
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register" />
+        android:text="@string/register" />
 </RelativeLayout>

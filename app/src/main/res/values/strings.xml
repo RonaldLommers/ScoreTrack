@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ScoreTrack</string>
+    <string name="achternaam">achternaam</string>
+    <string name="naam">naam</string>
+    <string name="mail">mail</string>
+    <string name="wachtwoord">wachtwoord</string>
+    <string name="register">Register</string>
 </resources>
