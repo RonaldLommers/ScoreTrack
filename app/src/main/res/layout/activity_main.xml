@@ -19,8 +19,8 @@
         tools:layout_editor_absoluteY="122dp"
         android:hint="@string/email"
         android:autofillHints=""
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"/>
+        android:textColor="#f2ebd0"
+        android:textColorHint="#f2ebd0"/>
 
     <EditText
         android:id="@+id/etPassword"
@@ -33,7 +33,7 @@
         tools:layout_editor_absoluteX="105dp"
         tools:layout_editor_absoluteY="212dp"
         android:hint="@string/password"
-        android:textColorHint="@color/white"
+        android:textColorHint="#f2ebd0"
         android:autofillHints=""
         android:textColor="@color/white"/>
 
