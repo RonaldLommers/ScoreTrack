@@ -16,7 +16,7 @@
         android:inputType="textPersonName"
         android:hint="@string/naam"
         android:autofillHints=""
-        android:textColor="@color/white"
+        android:textColor="#f2ebd0"
         android:textColorHint="@color/white"/>
 
     <EditText
@@ -29,7 +29,7 @@
         android:inputType="textPersonName"
         android:hint="@string/achternaam"
         android:autofillHints=""
-        android:textColor="@color/white"
+        android:textColor="#f2ebd0"
         android:textColorHint="@color/white"/>
 
     <EditText
@@ -42,7 +42,7 @@
         android:inputType="textEmailAddress"
         android:hint="@string/mail"
         android:autofillHints=""
-        android:textColor="@color/white"
+        android:textColor="#f2ebd0"
         android:textColorHint="@color/white" />
 
     <EditText
@@ -55,7 +55,7 @@
         android:inputType="textPassword"
         android:hint="@string/wachtwoord"
         android:autofillHints=""
-        android:textColor="@color/white"
+        android:textColor="#f2ebd0"
         android:textColorHint="@color/white"/>
 
     <Button
