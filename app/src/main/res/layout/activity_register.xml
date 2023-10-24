@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/brown"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".register">
@@ -14,7 +15,9 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="@string/naam"
-        android:autofillHints="" />
+        android:autofillHints=""
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"/>
 
     <EditText
         android:id="@+id/etSurname"
@@ -25,7 +28,9 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="@string/achternaam"
-        android:autofillHints="" />
+        android:autofillHints=""
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"/>
 
     <EditText
         android:id="@+id/etMail"
@@ -36,7 +41,9 @@
         android:ems="10"
         android:inputType="textEmailAddress"
         android:hint="@string/mail"
-        android:autofillHints="" />
+        android:autofillHints=""
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/etPassword"
@@ -47,7 +54,9 @@
         android:ems="10"
         android:inputType="textPassword"
         android:hint="@string/wachtwoord"
-        android:autofillHints="" />
+        android:autofillHints=""
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"/>
 
     <Button
         android:id="@+id/btRegister"
@@ -55,5 +64,6 @@
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/register" />
+        android:text="@string/register"
+        android:backgroundTint="@color/green"/>
 </RelativeLayout>
