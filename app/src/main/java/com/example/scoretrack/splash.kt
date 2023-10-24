@@ -13,7 +13,7 @@ class splash : AppCompatActivity() {
         var iv: ImageView = findViewById(R.id.logoscoretrack)
         iv.alpha = 0f;
         iv.animate().setDuration(3000).alpha(1f).withEndAction{
-            val i = Intent(this,register::class.java)
+            val i = Intent(this,MainActivity::class.java)
             startActivity(i);
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
