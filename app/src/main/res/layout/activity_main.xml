@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#5B352A"
+    android:background="@color/brown"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -19,7 +19,8 @@
         tools:layout_editor_absoluteY="122dp"
         android:hint="@string/email"
         android:autofillHints=""
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"/>
 
     <EditText
         android:id="@+id/etPassword"
@@ -32,6 +33,7 @@
         tools:layout_editor_absoluteX="105dp"
         tools:layout_editor_absoluteY="212dp"
         android:hint="@string/password"
+        android:textColorHint="@color/white"
         android:autofillHints=""
         android:textColor="@color/white"/>
 
@@ -40,8 +42,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="@color/green"
         android:text="@string/login"
+        android:backgroundTint="@color/green"
         tools:layout_editor_absoluteX="158dp"
         tools:layout_editor_absoluteY="301dp" />
 
@@ -52,7 +54,7 @@
         android:layout_below="@id/btLogin"
         android:layout_centerHorizontal="true"
         android:text="Register"
-        android:background="@color/green"
+        android:backgroundTint="@color/green"
         tools:layout_editor_absoluteX="157dp"
         tools:layout_editor_absoluteY="410dp"/>
 </RelativeLayout>
