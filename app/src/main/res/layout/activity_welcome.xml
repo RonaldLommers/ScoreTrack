@@ -38,20 +38,7 @@
         android:layout_marginTop="215dp"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
-    <EditText
-        android:id="@+id/editTextText"
-        android:layout_width="217dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="162dp"
-        android:layout_marginTop="41dp"
-        android:ems="20"
-        android:inputType="text"
-        android:textColor="#5B352A"
-        android:text="ScoreTrack"
-        android:textSize="100px" />
+
 
     <ImageView
         android:id="@+id/imageView2"
@@ -81,9 +68,21 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
-        android:background="#5B352A"
+        android:background="#4d9e56"
         android:layout_marginBottom="-13dp"
         />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="44dp"
+        android:text="ScoreTrack"
+        android:textColor="#4d9e56"
+        android:textSize="100px" />
 
 
 </RelativeLayout>
