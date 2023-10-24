@@ -10,5 +10,3 @@ class welcome : AppCompatActivity() {
 
     }
 }
-
-var hallo = print("Hallo weilin")
