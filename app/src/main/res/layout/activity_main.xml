@@ -40,8 +40,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="@color/green"
         android:text="@string/login"
+        android:theme="@style/Button.green"
         tools:layout_editor_absoluteX="158dp"
         tools:layout_editor_absoluteY="301dp" />
 
@@ -52,7 +52,6 @@
         android:layout_below="@id/btLogin"
         android:layout_centerHorizontal="true"
         android:text="Register"
-        android:background="@color/green"
         tools:layout_editor_absoluteX="157dp"
         tools:layout_editor_absoluteY="410dp"/>
 </RelativeLayout>

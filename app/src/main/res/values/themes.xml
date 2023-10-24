@@ -6,4 +6,7 @@
     </style>
 
     <style name="Theme.ScoreTrack" parent="Base.Theme.ScoreTrack" />
+    <style name="Button.green" parent="ThemeOverlay.AppCompat">
+        <item name="colorAccent">@android:color/holo_green_light</item>
+    </style>
 </resources>
