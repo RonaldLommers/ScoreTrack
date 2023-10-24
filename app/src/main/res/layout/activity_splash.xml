@@ -9,11 +9,11 @@
 
 
     <ImageView
+        android:id="@+id/logoscoretrack"
         android:layout_width="500dp"
         android:layout_height="500dp"
-        android:id="@+id/logoscoretrack"
-        android:src="@drawable/ic_logoscoretrack2"
-        android:layout_centerInParent="true"></ImageView>
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_logoscoretrack2"></ImageView>
 
 
 </RelativeLayout>
