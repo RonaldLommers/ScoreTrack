@@ -24,13 +24,16 @@
         </activity>
 
         <activity
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:name=".MainActivity"
             android:exported="true">
         </activity>
 
         <activity
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:name=".register"/>
         <activity
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:name=".welcome"/>
     </application>
 
