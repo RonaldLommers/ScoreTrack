@@ -1,64 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#4d9e56"
+    android:background="#f2ebd0"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/etMail"
-        android:layout_above="@id/etPassword"
-        android:layout_centerHorizontal="true"
+    <Button
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        tools:layout_editor_absoluteX="103dp"
-        tools:layout_editor_absoluteY="122dp"
-        android:hint="@string/email"
-        android:autofillHints=""
-        android:textColor="#f2ebd0"
-        android:textColorHint="#f2ebd0"/>
-
-    <EditText
-        android:id="@+id/etPassword"
-        android:layout_above="@id/btLogin"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        tools:layout_editor_absoluteX="105dp"
-        tools:layout_editor_absoluteY="212dp"
-        android:hint="@string/password"
-        android:textColorHint="#f2ebd0"
-        android:autofillHints=""
-        android:textColor="#f2ebd0"/>
+        android:text="Saves"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btLogin"
+        android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="@string/login"
-        android:backgroundTint="@color/green"
-        tools:layout_editor_absoluteX="158dp"
-        tools:layout_editor_absoluteY="301dp"
-        android:textColor="#f2ebd0"
-        android:textColorHint="#f2ebd0"/>
+        android:text="Play"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btRegister"
+        android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btLogin"
-        android:layout_centerHorizontal="true"
-        android:text="Register"
-        android:backgroundTint="@color/green"
-        tools:layout_editor_absoluteX="157dp"
-        tools:layout_editor_absoluteY="410dp"
-        android:textColor="#f2ebd0"
-        android:textColorHint="#f2ebd0"/>
-</RelativeLayout>
+        android:text="Settings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="286dp"
+        android:layout_height="124dp"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_logoscoretrack2" />
+</androidx.constraintlayout.widget.ConstraintLayout>
