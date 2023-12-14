@@ -1,6 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/green">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Title EditText -->
+    <EditText
+        android:id="@+id/titleEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Title"
+        android:textColorHint="#fff"
+        android:textColor="#fff"/>
+
+    <!-- Integer EditText -->
+    <EditText
+        android:id="@+id/integerEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Integer Field"
+        android:textColorHint="#fff"
+        android:textColor="#fff"/>
+
+    <!-- Names EditTexts -->
+    <EditText
+        android:id="@+id/name1EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Player 1"
+        android:textColorHint="#fff"
+        android:textColor="#fff"/>
+
+    <EditText
+        android:id="@+id/name2EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Player 2"
+        android:textColorHint="#fff"
+        android:textColor="#fff"/>
+
+    <EditText
+        android:id="@+id/name3EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Player 3"
+        android:textColorHint="#fff"
+        android:textColor="#fff"/>
+
+    <EditText
+        android:id="@+id/name4EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Player 4"
+        android:textColorHint="#fff"
+        android:textColor="#fff"/>
+
+    <EditText
+        android:id="@+id/name5EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Player 5"
+        android:textColorHint="#fff"
+        android:textColor="#fff"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        android:backgroundTint="@color/lighter_green"/>
+</LinearLayout>
