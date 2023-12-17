@@ -14,9 +14,19 @@
         android:layout_height="117dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="215dp"
-        android:layout_marginTop="382dp"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="447dp"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+    <TextView
+        android:layout_width="360dp"
+        android:layout_height="398dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="186dp"
+        android:background="@color/cardview_shadow_start_color" />
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -24,22 +34,20 @@
         android:layout_height="117dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="381dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="442dp"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
 
     <ImageButton
         android:id="@+id/imageButton2"
-        android:layout_width="123dp"
-        android:layout_height="117dp"
+        android:layout_width="125dp"
+        android:layout_height="121dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="218dp"
-        android:layout_marginTop="230dp"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="211dp"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
-
-
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -47,8 +55,8 @@
         android:layout_height="117dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="230dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="212dp"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
     <Button
