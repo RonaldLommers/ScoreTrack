@@ -1,75 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
     android:background="@color/green">
 
-    <!-- Title EditText -->
+
+    <Button
+        android:id="@+id/goback"
+        android:layout_width="33dp"
+        android:layout_height="33dp"
+        android:text="@string/back"
+        android:backgroundTint="@color/lighter_green"/>
+
     <EditText
         android:id="@+id/titleEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Title"
+        android:hint="@string/title"
         android:textColorHint="#fff"
-        android:textColor="#fff"/>
+        android:textColor="#fff"
+        android:autofillHints=""
+        android:inputType="text"/>
 
-    <!-- Integer EditText -->
     <EditText
         android:id="@+id/integerEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
-        android:hint="Integer Field"
+        android:text="@string/_0"
+        android:hint="@string/starting_score"
         android:textColorHint="#fff"
         android:textColor="#fff"/>
 
-    <!-- Names EditTexts -->
     <EditText
         android:id="@+id/name1EditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Player 1"
+        android:hint="@string/player_1"
         android:textColorHint="#fff"
-        android:textColor="#fff"/>
+        android:textColor="#fff"
+        android:autofillHints=""
+        android:inputType="text"/>
 
     <EditText
         android:id="@+id/name2EditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Player 2"
+        android:hint="@string/player_2"
         android:textColorHint="#fff"
-        android:textColor="#fff"/>
+        android:textColor="#fff"
+        android:autofillHints=""
+        android:inputType="text"/>
 
     <EditText
         android:id="@+id/name3EditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Player 3"
+        android:hint="@string/player_3"
         android:textColorHint="#fff"
-        android:textColor="#fff"/>
+        android:textColor="#fff"
+        android:autofillHints=""
+        android:inputType="text"/>
 
     <EditText
         android:id="@+id/name4EditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Player 4"
+        android:hint="@string/player_4"
         android:textColorHint="#fff"
-        android:textColor="#fff"/>
+        android:textColor="#fff"
+        android:autofillHints=""
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/name5EditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Player 5"
+        android:hint="@string/player_5"
         android:textColorHint="#fff"
-        android:textColor="#fff"/>
+        android:textColor="#fff"
+        android:autofillHints=""
+        android:inputType="text"/>
 
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="@string/button"
         android:backgroundTint="@color/lighter_green"/>
 </LinearLayout>
