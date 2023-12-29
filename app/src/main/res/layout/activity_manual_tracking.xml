@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/green">
+
+    <TextView
+        android:id="@+id/displayTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Title: " />
+
+    <TextView
+        android:id="@+id/displayInteger"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Integer Value: " />
+
+    <TextView
+        android:id="@+id/displayName1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name 1: " />
+
+</LinearLayout>

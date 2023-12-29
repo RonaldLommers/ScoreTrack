@@ -1,6 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/green">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/goback"
+        android:layout_width="33dp"
+        android:layout_height="33dp"
+        android:text="@string/back"
+        android:backgroundTint="@color/lighter_green"/>
+
+    <EditText
+        android:id="@+id/titleEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/title"
+        android:textColorHint="#fff"
+        android:textColor="#fff"
+        android:autofillHints=""
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/integerEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:text="@string/_0"
+        android:hint="@string/starting_score"
+        android:textColorHint="#fff"
+        android:textColor="#fff"/>
+
+    <EditText
+        android:id="@+id/name1EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/player_1"
+        android:textColorHint="#fff"
+        android:textColor="#fff"
+        android:autofillHints=""
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/name2EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/player_2"
+        android:textColorHint="#fff"
+        android:textColor="#fff"
+        android:autofillHints=""
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/name3EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/player_3"
+        android:textColorHint="#fff"
+        android:textColor="#fff"
+        android:autofillHints=""
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/name4EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/player_4"
+        android:textColorHint="#fff"
+        android:textColor="#fff"
+        android:autofillHints=""
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/name5EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/player_5"
+        android:textColorHint="#fff"
+        android:textColor="#fff"
+        android:autofillHints=""
+        android:inputType="text"/>
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/start"
+        android:backgroundTint="@color/lighter_green"/>
+</LinearLayout>
