@@ -8,6 +8,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
+import android.util.Log
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,8 +30,9 @@ class MainActivity : AppCompatActivity() {
 
         val settingsImageButton = findViewById<ImageButton>(R.id.settingsImageButton)
         settingsImageButton.setOnClickListener {
-            val intent = Intent(this, Accountinstellingen::class.java)
+            val intent = Intent(this, Blackjack::class.java)
             startActivity(intent)
+
+        }
         }
     }
-}
