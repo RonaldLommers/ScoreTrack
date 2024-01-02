@@ -15,6 +15,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
+    <LinearLayout
+        android:id="@+id/playersLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/addPlayerButton"
+        app:layout_constraintBottom_toTopOf="@id/startGameButton">
+        <!-- Player views will be dynamically added here -->
+    </LinearLayout>
+
     <Button
         android:id="@+id/startGameButton"
         android:layout_width="wrap_content"
@@ -23,19 +33,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
-
-    <LinearLayout
-        android:id="@+id/playersLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/addPlayerButton"
-        app:layout_constraintBottom_toTopOf="@id/startGameButton">
-        <!-- Player views will be added here -->
-    </LinearLayout>
-
-
-    <!-- Player views will be dynamically added here -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
