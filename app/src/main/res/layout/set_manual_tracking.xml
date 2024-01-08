@@ -10,7 +10,7 @@
 
     <Button
         android:id="@+id/goback"
-        android:layout_width="33dp"
+        android:layout_width="match_parent"
         android:layout_height="33dp"
         android:text="@string/back"
         android:backgroundTint="@color/lighter_green"/>
