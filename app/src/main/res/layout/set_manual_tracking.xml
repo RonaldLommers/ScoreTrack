@@ -11,9 +11,11 @@
     <Button
         android:id="@+id/goback"
         android:layout_width="match_parent"
-        android:layout_height="33dp"
+        android:layout_height="48dp"
         android:text="@string/back"
-        android:backgroundTint="@color/lighter_green"/>
+        android:backgroundTint="@color/lighter_green"
+        android:minWidth="64dp"
+        android:minHeight="48dp"/>
 
     <EditText
         android:id="@+id/titleEditText"
@@ -23,7 +25,9 @@
         android:textColorHint="#fff"
         android:textColor="#fff"
         android:autofillHints=""
-        android:inputType="text"/>
+        android:inputType="text"
+        android:minWidth="64dp"
+        android:minHeight="48dp"/>
 
     <EditText
         android:id="@+id/integerEditText"
@@ -33,7 +37,9 @@
         android:text="@string/_0"
         android:hint="@string/starting_score"
         android:textColorHint="#fff"
-        android:textColor="#fff"/>
+        android:textColor="#fff"
+        android:minWidth="64dp"
+        android:minHeight="48dp"/>
 
     <EditText
         android:id="@+id/name1EditText"
@@ -43,7 +49,9 @@
         android:textColorHint="#fff"
         android:textColor="#fff"
         android:autofillHints=""
-        android:inputType="text"/>
+        android:inputType="text"
+        android:minWidth="64dp"
+        android:minHeight="48dp"/>
 
     <EditText
         android:id="@+id/name2EditText"
@@ -53,7 +61,9 @@
         android:textColorHint="#fff"
         android:textColor="#fff"
         android:autofillHints=""
-        android:inputType="text"/>
+        android:inputType="text"
+        android:minWidth="64dp"
+        android:minHeight="48dp"/>
 
     <EditText
         android:id="@+id/name3EditText"
@@ -63,7 +73,9 @@
         android:textColorHint="#fff"
         android:textColor="#fff"
         android:autofillHints=""
-        android:inputType="text"/>
+        android:inputType="text"
+        android:minWidth="64dp"
+        android:minHeight="48dp"/>
 
     <EditText
         android:id="@+id/name4EditText"
@@ -73,7 +85,9 @@
         android:textColorHint="#fff"
         android:textColor="#fff"
         android:autofillHints=""
-        android:inputType="text" />
+        android:inputType="text"
+        android:minWidth="64dp"
+        android:minHeight="48dp"/>
 
     <EditText
         android:id="@+id/name5EditText"
@@ -83,12 +97,16 @@
         android:textColorHint="#fff"
         android:textColor="#fff"
         android:autofillHints=""
-        android:inputType="text"/>
+        android:inputType="text"
+        android:minWidth="64dp"
+        android:minHeight="48dp"/>
 
     <Button
         android:id="@+id/start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/start"
-        android:backgroundTint="@color/lighter_green"/>
+        android:text="@string/start_game"
+        android:backgroundTint="@color/lighter_green"
+        android:minWidth="64dp"
+        android:minHeight="48dp"/>
 </LinearLayout>

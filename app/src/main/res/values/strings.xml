@@ -21,4 +21,6 @@
     <string name="button">Button</string>
     <string name="start" />
     <string name="title_activity_set_manual_tracking">SetManualTracking</string>
+    <string name="play" />
+    <string name="start_game">start game</string>
 </resources>
