@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "opmerking": "kaartje ronald",
+        "speltype": "YAHTZEE",
+        "spelers": [],
+        "startdatum": "20-11-2023 10:43",
+        "saves": [
+            {
+                "datumHervat": "20-11-2023 10:43",
+                "datumOpgeslagen": "20-11-2023 11:56",
+                "gamestate": {
+                    "var1": 420,
+                    "dieEneArray": [5,8,1,55]
+                }
+            },
+            {
+                "datumHervat": "22-11-2023 12:16",
+                "datumOpgeslagen": "22-11-2023 13:22",
+                "gamestate": {
+                    "var1": 855,
+                    "dieEneArray": [5,8,1,55,88,918,11,18]
+                }
+            }
+        ]
+    }
+]
