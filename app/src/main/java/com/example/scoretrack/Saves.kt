@@ -8,7 +8,7 @@ import java.io.File
 
 class Saves : AppCompatActivity() {
 
-    var savesPath = "src/main/resources/raw/saves.json"
+    var savesPath = "data/saves.json"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,9 +18,9 @@ class Saves : AppCompatActivity() {
 
     fun loadSaves() {
         val textView = findViewById<TextView>(R.id.tv_saves)
-        val jsonFile = File(savesPath)
-        val jsonString = jsonFile.readText()
-        textView.text = jsonFile.toString()
+        val jsonFile = Save::class.java.getResource(savesPath).readText()
+        //val jsonString = jsonFile.readText()
+        textView.text = jsonFile
 //        println(jsonString)
 //        val gson = Gson()
 //        val save:Save = gson.fromJson(jsonString, Save::class.java)
