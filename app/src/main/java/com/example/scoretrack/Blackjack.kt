@@ -3,24 +3,24 @@ package com.example.scoretrack
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
-import android.widget.LinearLayout
-import android.view.ViewGroup
+import android.util.DisplayMetrics
+import android.view.Gravity
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
-
+import android.widget.LinearLayout
 
 class Blackjack : AppCompatActivity() {
     private var playerCount = 0
     private val maxPlayers = 6
-    private lateinit var playersLayout: ViewGroup
+    private lateinit var playersLayout: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_blackjack)
 
-        playersLayout = findViewById(R.id.playersLayout) // Define this in your XML
+        playersLayout = findViewById(R.id.playersLayout)
 
         val addPlayerButton = findViewById<Button>(R.id.addPlayerButton)
         addPlayerButton.setOnClickListener {
@@ -31,27 +31,46 @@ class Blackjack : AppCompatActivity() {
     }
 
     private fun addPlayer() {
-        val playerView = createPlayerView(playerCount + 1)
-        playersLayout.addView(playerView)
-        playerCount++
+        // Only add a new row for every two players
+        if (playerCount % 2 == 0) {
+            val row = createRowLayout()
+            playersLayout.addView(row)
+        }
 
-        // Adjust the layout based on the number of players
-        adjustLayoutForPlayers()
+        val lastRow = playersLayout.getChildAt(playersLayout.childCount - 1) as LinearLayout
+        lastRow.addView(createPlayerView(playerCount + 1))
+        playerCount++
+    }
+
+    private fun createRowLayout(): LinearLayout {
+        return LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            )
+            gravity = Gravity.CENTER
+        }
     }
 
     private fun createPlayerView(playerNumber: Int): View {
+        val metrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(metrics)
+        val playerViewWidth = metrics.widthPixels / 2 // Half the screen width
+
         val playerView = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
+                playerViewWidth,
                 LinearLayout.LayoutParams.WRAP_CONTENT
             )
         }
 
         val playerIcon = ImageView(this).apply {
-            // Set your drawable resource here
-            setImageResource(R.drawable.ic_player_icon)
-            layoutParams = LinearLayout.LayoutParams(100, 100) // Set your desired size
+            setImageResource(R.drawable.ic_player_icon) // Ensure this drawable exists
+            layoutParams = LinearLayout.LayoutParams(
+                100, 100 // Adjust icon size as needed
+            )
         }
         playerView.addView(playerIcon)
 
@@ -75,52 +94,5 @@ class Blackjack : AppCompatActivity() {
         playerView.addView(playerStake)
 
         return playerView
-    }
-
-    private fun adjustLayoutForPlayers() {
-        // Assuming playersLayout is a LinearLayout
-        val layout = findViewById<LinearLayout>(R.id.playersLayout)
-
-        // Clear all views to rearrange them
-        layout.removeAllViews()
-
-        // Create a new layout structure based on the number of players
-        when (playerCount) {
-            1 -> {
-                // For 1 player, add the single view to the center
-                layout.addView(createPlayerView(1))
-            }
-            2 -> {
-                // For 2 players, add them in a single row
-                val row = createRowLayout()
-                for (i in 1..2) {
-                    row.addView(createPlayerView(i))
-                }
-                layout.addView(row)
-            }
-            3 -> {
-                // For 3 players, 2 in the first row, 1 centered in the second row
-                val row1 = createRowLayout()
-                for (i in 1..2) {
-                    row1.addView(createPlayerView(i))
-                }
-                layout.addView(row1)
-
-                val row2 = createRowLayout()
-                row2.addView(createPlayerView(3))
-                layout.addView(row2)
-            }
-            // Similar logic for 4, 5, and 6 players...
-        }
-    }
-
-    private fun createRowLayout(): LinearLayout {
-        return LinearLayout(this).apply {
-            orientation = LinearLayout.HORIZONTAL
-            layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-            )
-        }
     }
 }

@@ -16,7 +16,7 @@ class SetManualTrackingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.set_data_manual)
+        setContentView(R.layout.set_manual_tracking)
 
         // Retrieve references to EditText widgets
         titleEditText = findViewById(R.id.titleEditText)

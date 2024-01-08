@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         val playImageButton = findViewById<ImageButton>(R.id.playImageButton)
         playImageButton.setOnClickListener {
-            val intent = Intent(this, Play::class.java)
+            val intent = Intent(this, SetManualTrackingActivity::class.java)
             startActivity(intent)
         }
 
