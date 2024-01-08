@@ -29,7 +29,7 @@ class Blackjack : AppCompatActivity() {
             }
         }
     }
-
+    val gameNameEditText = findViewById<EditText>(R.id.gameNameEditText)
     private fun addPlayer() {
         // Only add a new row for every two players
         if (playerCount % 2 == 0) {
