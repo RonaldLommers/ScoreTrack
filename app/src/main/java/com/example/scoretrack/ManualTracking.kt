@@ -14,12 +14,16 @@ class ManualTrackingActivity : AppCompatActivity() {
 
         // Retrieve references to TextView widgets
         val displayTitle: TextView = findViewById(R.id.displayTitle)
-        val displayInteger: TextView = findViewById(R.style.displayInteger)
         val displayName1: TextView = findViewById(R.id.displayName1)
         val displayName2: TextView = findViewById(R.id.displayName2)
         val displayName3: TextView = findViewById(R.id.displayName3)
         val displayName4: TextView = findViewById(R.id.displayName4)
         val displayName5: TextView = findViewById(R.id.displayName5)
+        val int1: TextView = findViewById(R.id.displayInteger1)
+        val int2: TextView = findViewById(R.id.displayInteger2)
+        val int3: TextView = findViewById(R.id.displayInteger3)
+        val int4: TextView = findViewById(R.id.displayInteger4)
+        val int5: TextView = findViewById(R.id.displayInteger5)
         // Add references for other name TextView widgets as needed
 
         // Retrieve data from Intent extras
@@ -33,13 +37,17 @@ class ManualTrackingActivity : AppCompatActivity() {
         // Retrieve data for other names as needed
 
         // Update TextViews with the retrieved data
-        displayTitle.text = "Title: $title"
-//        displayInteger1.text = "Integer Value: $integerValue"
-        displayName1.text = "Name 1: $name1"
-        displayName2.text = "Name 2: $name2"
-        displayName3.text = "Name 3: $name3"
-        displayName4.text = "Name 4: $name4"
-        displayName5.text = "Name 5: $name5"
+        displayTitle.text = title
+        displayName1.text = name1
+        displayName2.text = name2
+        displayName3.text = name3
+        displayName4.text = name4
+        displayName5.text = name5
+        int1.text = integerValue.toString()
+        int2.text = integerValue.toString()
+        int3.text = integerValue.toString()
+        int4.text = integerValue.toString()
+        int5.text = integerValue.toString()
         // Update other name TextViews as needed
     }
 }
