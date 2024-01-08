@@ -13,6 +13,14 @@
         android:theme="@style/Theme.ScoreTrack"
         tools:targetApi="31">
         <activity
+            android:name=".ManualTracking"
+            android:exported="false" />
+        <activity
+            android:name=".SetManualTracking"
+            android:exported="false"
+            android:label="@string/title_activity_set_manual_tracking"
+            android:theme="@style/Theme.ScoreTrack" />
+        <activity
             android:name=".Blackjack"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
