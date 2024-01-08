@@ -7,22 +7,93 @@
     android:padding="16dp"
     android:background="@color/green">
 
-    <TextView
-        android:id="@+id/displayTitle"
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Title: " />
+        android:padding="16dp">
+        <TableRow>
+            <TextView
+                android:id="@+id/displayTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#fff"/>
+        </TableRow>
 
-    <TextView
-        android:id="@+id/displayInteger"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Integer Value: " />
+        <TableRow>
+            <TextView
+                android:id="@+id/displayName1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#fff"/>
+            <TextView
+                android:id="@+id/displayInteger1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#fff" />
+        </TableRow>
 
-    <TextView
-        android:id="@+id/displayName1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Name 1: " />
+        <TableRow>
+            <TextView
+                android:id="@+id/displayName2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#fff"/>
+            <TextView
+                android:id="@+id/displayInteger2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#fff" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/displayName3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#fff"/>
+            <TextView
+                android:id="@+id/displayInteger3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#fff" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/displayName4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#fff"/>
+            <TextView
+                android:id="@+id/displayInteger4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#fff" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/displayName5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#fff"/>
+            <TextView
+                android:id="@+id/displayInteger5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#fff" />
+        </TableRow>
+    </TableLayout>
 
 </LinearLayout>

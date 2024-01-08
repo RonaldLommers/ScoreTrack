@@ -19,8 +19,6 @@
     <string name="player_4">Player 4</string>
     <string name="player_5">Player 5</string>
     <string name="button">Button</string>
-    <string name="start" />
     <string name="title_activity_set_manual_tracking">SetManualTracking</string>
-    <string name="play" />
     <string name="start_game">start game</string>
 </resources>
