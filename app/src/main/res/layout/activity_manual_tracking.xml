@@ -28,7 +28,7 @@
                 android:text=""
                 android:textColor="#fff"/>
             <TextView
-                android:id="@+id/displayInteger1"
+                style="@style/displayInteger"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text=""
@@ -43,7 +43,7 @@
                 android:text=""
                 android:textColor="#fff"/>
             <TextView
-                android:id="@+id/displayInteger2"
+                style="@style/displayInteger"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text=""
@@ -58,7 +58,7 @@
                 android:text=""
                 android:textColor="#fff"/>
             <TextView
-                android:id="@+id/displayInteger3"
+                style="@style/displayInteger"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text=""
@@ -73,7 +73,7 @@
                 android:text=""
                 android:textColor="#fff"/>
             <TextView
-                android:id="@+id/displayInteger4"
+                style="@style/displayInteger"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text=""
@@ -88,7 +88,7 @@
                 android:text=""
                 android:textColor="#fff"/>
             <TextView
-                android:id="@+id/displayInteger5"
+                style="@style/displayInteger"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text=""

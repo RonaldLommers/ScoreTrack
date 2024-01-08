@@ -7,14 +7,14 @@ import androidx.appcompat.app.AppCompatActivity
 
 class ManualTrackingActivity : AppCompatActivity() {
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint("SetTextI18n", "MissingInflatedId", "ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_manual_tracking)
 
         // Retrieve references to TextView widgets
         val displayTitle: TextView = findViewById(R.id.displayTitle)
-        val displayInteger: TextView = findViewById(R.id.displayInteger)
+        val displayInteger: TextView = findViewById(R.style.displayInteger)
         val displayName1: TextView = findViewById(R.id.displayName1)
         val displayName2: TextView = findViewById(R.id.displayName2)
         val displayName3: TextView = findViewById(R.id.displayName3)
@@ -34,7 +34,7 @@ class ManualTrackingActivity : AppCompatActivity() {
 
         // Update TextViews with the retrieved data
         displayTitle.text = "Title: $title"
-        displayInteger.text = "Integer Value: $integerValue"
+//        displayInteger1.text = "Integer Value: $integerValue"
         displayName1.text = "Name 1: $name1"
         displayName2.text = "Name 2: $name2"
         displayName3.text = "Name 3: $name3"
