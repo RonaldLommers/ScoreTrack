@@ -34,25 +34,30 @@ class Blackjack : AppCompatActivity() {
 
         val startGameButton = findViewById<Button>(R.id.startGameButton)
         startGameButton.setOnClickListener {
-            if (isGameInfoComplete()) {
+            if (playerCount > 0 && isGameInfoComplete()) {
                 val gameName = gameNameEditText.text.toString()
                 // Use the gameName for your game logic
                 // Start the game
             } else {
-                Toast.makeText(this, "Please enter a game name", Toast.LENGTH_SHORT).show()
+                val message = if (playerCount == 0) {
+                    "Add at least 1 player"
+                } else {
+                    "Please enter a game name and ensure all players have a name and stake"
+                }
+                Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
             }
         }
     }
 
     private fun addPlayer() {
-        // Only add a new row for every two players
         if (playerCount % 2 == 0) {
             val row = createRowLayout()
             playersLayout.addView(row)
         }
 
         val lastRow = playersLayout.getChildAt(playersLayout.childCount - 1) as LinearLayout
-        lastRow.addView(createPlayerView(playerCount + 1))
+        val playerView = createPlayerView(playerCount + 1)
+        lastRow.addView(playerView)
         playerCount++
     }
 
@@ -70,7 +75,7 @@ class Blackjack : AppCompatActivity() {
     private fun createPlayerView(playerNumber: Int): View {
         val metrics = DisplayMetrics()
         windowManager.defaultDisplay.getMetrics(metrics)
-        val playerViewWidth = metrics.widthPixels / 2 // Half the screen width
+        val playerViewWidth = metrics.widthPixels / 2
 
         val playerView = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
@@ -81,10 +86,13 @@ class Blackjack : AppCompatActivity() {
         }
 
         val playerIcon = ImageView(this).apply {
-            setImageResource(R.drawable.ic_player_icon) // Replace with your drawable resource
+            setImageResource(R.drawable.ic_player_icon)
             layoutParams = LinearLayout.LayoutParams(
-                100, 100 // Adjust icon size as needed
+                100, 100
             )
+            setOnClickListener {
+                removePlayer(playerView)
+            }
         }
         playerView.addView(playerIcon)
 
@@ -110,13 +118,20 @@ class Blackjack : AppCompatActivity() {
         return playerView
     }
 
+    private fun removePlayer(playerView: View) {
+        val row = playerView.parent as LinearLayout
+        row.removeView(playerView)
+        playerCount--
+        Toast.makeText(this, "Player Removed", Toast.LENGTH_SHORT).show()
+    }
+
     private fun isPlayerInfoComplete(): Boolean {
         for (i in 0 until playersLayout.childCount) {
             val row = playersLayout.getChildAt(i) as LinearLayout
             for (j in 0 until row.childCount) {
                 val playerView = row.getChildAt(j) as LinearLayout
-                val playerName = playerView.getChildAt(1) as EditText // Assuming name is the second child
-                val playerStake = playerView.getChildAt(2) as EditText // Assuming stake is the third child
+                val playerName = playerView.getChildAt(1) as EditText
+                val playerStake = playerView.getChildAt(2) as EditText
 
                 if (playerName.text.toString().trim().isEmpty() || playerStake.text.toString().trim().isEmpty()) {
                     return false
@@ -127,11 +142,9 @@ class Blackjack : AppCompatActivity() {
     }
 
     private fun isGameInfoComplete(): Boolean {
-        // Check if the game name is entered
         if (gameNameEditText.text.toString().trim().isEmpty()) {
             return false
         }
-        // Check if all players have a name and stake entered
         return isPlayerInfoComplete()
     }
 }
