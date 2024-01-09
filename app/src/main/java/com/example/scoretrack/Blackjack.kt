@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.Toast
 
 class Blackjack : AppCompatActivity() {
     private var playerCount = 0
@@ -33,8 +34,13 @@ class Blackjack : AppCompatActivity() {
 
         val startGameButton = findViewById<Button>(R.id.startGameButton)
         startGameButton.setOnClickListener {
-            val gameName = gameNameEditText.text.toString()
-            // Use the gameName for your game logic
+            if (isGameInfoComplete()) {
+                val gameName = gameNameEditText.text.toString()
+                // Use the gameName for your game logic
+                // Start the game
+            } else {
+                Toast.makeText(this, "Please enter a game name", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -102,5 +108,30 @@ class Blackjack : AppCompatActivity() {
         playerView.addView(playerStake)
 
         return playerView
+    }
+
+    private fun isPlayerInfoComplete(): Boolean {
+        for (i in 0 until playersLayout.childCount) {
+            val row = playersLayout.getChildAt(i) as LinearLayout
+            for (j in 0 until row.childCount) {
+                val playerView = row.getChildAt(j) as LinearLayout
+                val playerName = playerView.getChildAt(1) as EditText // Assuming name is the second child
+                val playerStake = playerView.getChildAt(2) as EditText // Assuming stake is the third child
+
+                if (playerName.text.toString().trim().isEmpty() || playerStake.text.toString().trim().isEmpty()) {
+                    return false
+                }
+            }
+        }
+        return true
+    }
+
+    private fun isGameInfoComplete(): Boolean {
+        // Check if the game name is entered
+        if (gameNameEditText.text.toString().trim().isEmpty()) {
+            return false
+        }
+        // Check if all players have a name and stake entered
+        return isPlayerInfoComplete()
     }
 }
