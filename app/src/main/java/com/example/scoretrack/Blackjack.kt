@@ -15,12 +15,14 @@ class Blackjack : AppCompatActivity() {
     private var playerCount = 0
     private val maxPlayers = 6
     private lateinit var playersLayout: LinearLayout
+    private lateinit var gameNameEditText: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_blackjack)
 
         playersLayout = findViewById(R.id.playersLayout)
+        gameNameEditText = findViewById(R.id.gameNameEditText)
 
         val addPlayerButton = findViewById<Button>(R.id.addPlayerButton)
         addPlayerButton.setOnClickListener {
@@ -28,8 +30,14 @@ class Blackjack : AppCompatActivity() {
                 addPlayer()
             }
         }
+
+        val startGameButton = findViewById<Button>(R.id.startGameButton)
+        startGameButton.setOnClickListener {
+            val gameName = gameNameEditText.text.toString()
+            // Use the gameName for your game logic
+        }
     }
-    val gameNameEditText = findViewById<EditText>(R.id.gameNameEditText)
+
     private fun addPlayer() {
         // Only add a new row for every two players
         if (playerCount % 2 == 0) {
@@ -67,7 +75,7 @@ class Blackjack : AppCompatActivity() {
         }
 
         val playerIcon = ImageView(this).apply {
-            setImageResource(R.drawable.ic_player_icon) // Ensure this drawable exists
+            setImageResource(R.drawable.ic_player_icon) // Replace with your drawable resource
             layoutParams = LinearLayout.LayoutParams(
                 100, 100 // Adjust icon size as needed
             )
