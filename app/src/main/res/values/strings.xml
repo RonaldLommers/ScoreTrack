@@ -10,7 +10,7 @@
     <string name="password">password</string>
     <string name="login">Login</string>
     <string name="starting_score">starting score</string>
-    <string name="back"><![CDATA[<-]]></string>
+    <string name="back">x</string>
     <string name="title">Title</string>
     <string name="_0">0</string>
     <string name="player_1">Player 1</string>
