@@ -6,4 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".BlackjackGame">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="433dp"
+        android:layout_height="758dp"
+        app:srcCompat="@drawable/ic_blackjacktable"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
