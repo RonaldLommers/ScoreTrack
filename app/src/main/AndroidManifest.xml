@@ -26,6 +26,7 @@
             android:exported="false" />
         <activity
             android:name=".activity_spelomschrijving_blackjack"
+            android:name=".BlackjackGame"
             android:exported="false" />
         <activity
             android:name=".ManualTrackingActivity"

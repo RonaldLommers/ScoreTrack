@@ -10,7 +10,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.content.Intent
 import android.widget.Toast
+import com.google.gson.Gson
+import java.io.File
 
 class Blackjack : AppCompatActivity() {
     private var playerCount = 0
@@ -35,9 +38,13 @@ class Blackjack : AppCompatActivity() {
         val startGameButton = findViewById<Button>(R.id.startGameButton)
         startGameButton.setOnClickListener {
             if (playerCount > 0 && isGameInfoComplete()) {
-                val gameName = gameNameEditText.text.toString()
-                // Use the gameName for your game logic
-                // Start the game
+                val jsonData = serializeGameData()
+                saveGameData(jsonData)
+                Toast.makeText(this, "Game data saved", Toast.LENGTH_SHORT).show()
+
+                // Navigate to the BlackjackGame activity
+                val intent = Intent(this, BlackjackGame::class.java)
+                startActivity(intent)
             } else {
                 val message = if (playerCount == 0) {
                     "Add at least 1 player"
@@ -47,6 +54,8 @@ class Blackjack : AppCompatActivity() {
                 Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
             }
         }
+
+        loadGameIfAvailable()
     }
 
     private fun addPlayer() {
@@ -146,5 +155,42 @@ class Blackjack : AppCompatActivity() {
             return false
         }
         return isPlayerInfoComplete()
+    }
+
+    private fun serializeGameData(): String {
+        val players = mutableListOf<PlayerData>()
+        for (i in 0 until playersLayout.childCount) {
+            val row = playersLayout.getChildAt(i) as LinearLayout
+            for (j in 0 until row.childCount) {
+                val playerView = row.getChildAt(j) as LinearLayout
+                val playerName = (playerView.getChildAt(1) as EditText).text.toString()
+                val playerStake = (playerView.getChildAt(2) as EditText).text.toString().toIntOrNull() ?: 0
+                players.add(PlayerData(playerName, playerStake))
+            }
+        }
+        val gameData = GameData(gameNameEditText.text.toString(), players)
+        return Gson().toJson(gameData)
+    }
+
+    private fun saveGameData(jsonData: String) {
+        val file = File(filesDir, "gameData.json")
+        file.writeText(jsonData)
+    }
+
+    private fun loadGameData(): String {
+        val file = File(filesDir, "gameData.json")
+        if (file.exists()) {
+            return file.readText()
+        }
+        return ""
+    }
+
+    private fun loadGameIfAvailable() {
+        val jsonData = loadGameData()
+        if (jsonData.isNotEmpty()) {
+            val gameData = Gson().fromJson(jsonData, GameData::class.java)
+            gameNameEditText.setText(gameData.gameName)
+            // TODO: Add logic to restore each player's data to the UI
+        }
     }
 }
