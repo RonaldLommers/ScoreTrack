@@ -4,6 +4,8 @@ package com.example.scoretrack
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.View
+import android.widget.TableRow
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -50,8 +52,28 @@ class ManualTrackingActivity : AppCompatActivity() {
         int3.text = integerValue.toString()
         int4.text = integerValue.toString()
         int5.text = integerValue.toString()
-        // Update other name TextViews as needed
+
+        val tr1 = findViewById<TableRow>(R.id.TR1)
+        val tr2 = findViewById<TableRow>(R.id.TR2)
+        val tr3 = findViewById<TableRow>(R.id.TR3)
+        val tr4 = findViewById<TableRow>(R.id.TR4)
+        val tr5 = findViewById<TableRow>(R.id.TR5)
+
+        //hide unfilled player names
+        if (name1 == ""){
+            tr1.visibility = View.GONE
+        }
+        if (name2 == ""){
+            tr2.visibility = View.GONE
+        }
+        if (name3 == ""){
+            tr3.visibility = View.GONE
+        }
+        if (name4 == ""){
+            tr4.visibility = View.GONE
+        }
+        if (name5 == ""){
+            tr5.visibility = View.GONE
+        }
     }
 }
-
-
