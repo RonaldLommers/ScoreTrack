@@ -116,7 +116,7 @@ class Blackjack : AppCompatActivity() {
         playerView.addView(playerName)
 
         val playerStake = EditText(this).apply {
-            hint = "currentStake"
+            hint = "Stake"
             inputType = InputType.TYPE_CLASS_NUMBER
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
