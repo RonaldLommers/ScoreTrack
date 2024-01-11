@@ -1,6 +1,7 @@
 package com.example.scoretrack
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
@@ -28,7 +29,19 @@ class Saves : AppCompatActivity() {
 
     fun loadSaves() {
         val textView = findViewById<TextView>(R.id.tv_saves)
-        val jsonFile = loadJSONFromAsset(savesPath)
+        val textView2 = findViewById<TextView>(R.id.tv_saves2)
+
+        var jsonFile = loadJSON(savesPath)
+        jsonFile = null
+        if(jsonFile == null){
+            Log.d("KUT_KOTLIN", "JSON niet gevonden, laad test JSON")
+            jsonFile = loadJSONFromAsset(savesPath)
+        }else{
+            Log.d("KUT_KOTLIN", jsonFile)
+        }
+
+        textView2.text = loadJSON(savesPath)
+
 
         val gson = GsonBuilder().setDateFormat("dd-mm-yyyy hh:mm:ss").create()
 
@@ -46,12 +59,12 @@ class Saves : AppCompatActivity() {
             val save = saves.elementAt(0)
 //            val sessies = save.saves
 
-            saves.elementAt(0).speltype = "Jatzee"
+//            saves.elementAt(0).speltype = "Jatzee"
             textView.text = "Op ${save.startdatum} startte ${save.spelers} met het spel ${save.speltype}"
 
-            saves.elementAt(0).speltype = "Jatzee"
+            saves.elementAt(0).speltype = "Jatzee shit"
             val jsonString:String = gson.toJson(saves)
-            writeToJSON(savesPath, jsonString)
+            writeJSON(savesPath, jsonString)
         }
 
 
@@ -78,13 +91,35 @@ class Saves : AppCompatActivity() {
         return json
     }
 
-    fun writeToJSON(jsonPath: String, newJSON: String) {
-        try {
-            val `is`: OutputStream = openFileOutput(jsonPath, MODE_APPEND)
-            `is`.write(newJSON.toByteArray())
+    fun loadJSON(jsonPath: String): String? {
+        var json: String? = null
+        json = try {
+            val `is`: InputStream = openFileInput(jsonPath)
+            val size = `is`.available()
+            val buffer = ByteArray(size)
+            `is`.read(buffer)
             `is`.close()
+            String(buffer, charset("UTF-8"))
         } catch (ex: IOException) {
             ex.printStackTrace()
+            return null
+        }
+        return json
+    }
+
+    fun writeJSON(jsonPath: String, newJSON: String) {
+        Log.d("KUT_KOTLIN", "WERK NU")
+        try {
+            val file = File(jsonPath)
+            file.delete()
+
+            val os: OutputStream = openFileOutput("saves.json", MODE_APPEND)
+            os.write(newJSON.toByteArray())
+            os.close()
+            Log.d("KUT_KOTLIN", "als je dit leest hoop ik dat die het fucking bestand heeft opgeslagen")
+        } catch (ex: IOException) {
+//            ex.printStackTrace()
+            Log.d("KUT_KOTLIN", ex.stackTraceToString())
         }
     }
 }
