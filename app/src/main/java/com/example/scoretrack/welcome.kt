@@ -10,3 +10,7 @@ class welcome : AppCompatActivity() {
 
     }
 }
+
+
+/* spel 1 ( BlackJack )*/
+
