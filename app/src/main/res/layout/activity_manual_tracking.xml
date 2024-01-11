@@ -17,6 +17,7 @@
         android:minHeight="48dp"/>
 
     <TableLayout
+        android:id="@+id/TL_score"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp">
@@ -116,6 +117,104 @@
         </TableRow>
     </TableLayout>
 
+    <TableLayout
+        android:id="@+id/TL_addScore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
 
+        <TableRow android:id="@+id/ETR1">
+            <TextView
+                android:id="@+id/DN1"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:textSize="30sp"
+                android:text=""
+                android:textColor="#fff"/>
+            <TextView
+                android:id="@+id/DI1"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:textSize="30sp"
+                android:text=""
+                android:textColor="#fff" />
+        </TableRow>
 
+        <TableRow android:id="@+id/ETR2">
+            <TextView
+                android:id="@+id/DN2"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:textSize="30sp"
+                android:text=""
+                android:textColor="#fff"/>
+            <TextView
+                android:id="@+id/DI2"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:textSize="30sp"
+                android:text=""
+                android:textColor="#fff" />
+        </TableRow>
+
+        <TableRow android:id="@+id/ETR3">
+            <TextView
+                android:id="@+id/DN3"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:textSize="30sp"
+                android:text=""
+                android:textColor="#fff"/>
+            <TextView
+                android:id="@+id/DI3"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:textSize="30sp"
+                android:text=""
+                android:textColor="#fff" />
+        </TableRow>
+
+        <TableRow android:id="@+id/ETR4">
+            <TextView
+                android:id="@+id/DN4"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:textSize="30sp"
+                android:text=""
+                android:textColor="#fff"/>
+            <TextView
+                android:id="@+id/DI4"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:textSize="30sp"
+                android:text=""
+                android:textColor="#fff" />
+        </TableRow>
+
+        <TableRow android:id="@+id/ETR5">
+            <TextView
+                android:id="@+id/DN5"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:textSize="30sp"
+                android:text=""
+                android:textColor="#fff"/>
+            <TextView
+                android:id="@+id/DI5"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:textSize="30sp"
+                android:text=""
+                android:textColor="#fff" />
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/addScore"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="@string/add"
+        android:backgroundTint="@color/lighter_green"
+        android:minWidth="64dp"
+        android:minHeight="48dp"/>
 </LinearLayout>

@@ -42,11 +42,11 @@ class ManualTrackingActivity : AppCompatActivity() {
 
         // Update TextViews with the retrieved data
         displayTitle.text = title
-        displayName1.text = name1
-        displayName2.text = name2
-        displayName3.text = name3
-        displayName4.text = name4
-        displayName5.text = name5
+        displayName1.text = "$name1: "
+        displayName2.text = "$name2: "
+        displayName3.text = "$name3: "
+        displayName4.text = "$name4: "
+        displayName5.text = "$name5: "
         int1.text = integerValue.toString()
         int2.text = integerValue.toString()
         int3.text = integerValue.toString()
@@ -75,5 +75,7 @@ class ManualTrackingActivity : AppCompatActivity() {
         if (name5 == ""){
             tr5.visibility = View.GONE
         }
+
+        
     }
 }
