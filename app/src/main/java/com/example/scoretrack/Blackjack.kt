@@ -164,19 +164,18 @@ class Blackjack : AppCompatActivity() {
             val row = playersLayout.getChildAt(i) as LinearLayout
             for (j in 0 until row.childCount) {
                 val playerView = row.getChildAt(j) as LinearLayout
+                val playerNumber = (j + 1).toString()  // Assign player numbers sequentially
                 val playerName = (playerView.getChildAt(1) as EditText).text.toString()
                 val playerStakeString = (playerView.getChildAt(2) as EditText).text.toString()
+                val playerStake = playerStakeString.toIntOrNull() ?: 0 // Convert to Int
 
-                // Convert playerStakeString to Int, default to 0 if it's not a valid number
-                val playerStake = playerStakeString.toIntOrNull() ?: 0
-
-                // Now we pass both name and stake when creating PlayerData
-                players.add(PlayerData(playerName, playerStake))
+                players.add(PlayerData(playerNumber, playerName, playerStake))
             }
         }
         val gameData = GameData(gameNameEditText.text.toString(), players)
         return Gson().toJson(gameData)
     }
+
 
 
     private fun saveGameData(jsonData: String) {
