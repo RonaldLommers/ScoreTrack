@@ -1,6 +1,6 @@
 package com.example.scoretrack
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
 import android.util.DisplayMetrics
@@ -10,8 +10,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.content.Intent
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import java.io.File
 
@@ -42,8 +42,10 @@ class Blackjack : AppCompatActivity() {
                 saveGameData(jsonData)
                 Toast.makeText(this, "Game data saved", Toast.LENGTH_SHORT).show()
 
-                // Navigate to the BlackjackGame activity
+                // Create an Intent to start BlackjackGame activity
                 val intent = Intent(this, BlackjackGame::class.java)
+                // Pass the serialized game data
+                intent.putExtra("gameData", jsonData)
                 startActivity(intent)
             } else {
                 val message = if (playerCount == 0) {
@@ -54,7 +56,6 @@ class Blackjack : AppCompatActivity() {
                 Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
             }
         }
-
         loadGameIfAvailable()
     }
 
@@ -115,7 +116,7 @@ class Blackjack : AppCompatActivity() {
         playerView.addView(playerName)
 
         val playerStake = EditText(this).apply {
-            hint = "Stake"
+            hint = "currentStake"
             inputType = InputType.TYPE_CLASS_NUMBER
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
@@ -164,13 +165,19 @@ class Blackjack : AppCompatActivity() {
             for (j in 0 until row.childCount) {
                 val playerView = row.getChildAt(j) as LinearLayout
                 val playerName = (playerView.getChildAt(1) as EditText).text.toString()
-                val playerStake = (playerView.getChildAt(2) as EditText).text.toString().toIntOrNull() ?: 0
+                val playerStakeString = (playerView.getChildAt(2) as EditText).text.toString()
+
+                // Convert playerStakeString to Int, default to 0 if it's not a valid number
+                val playerStake = playerStakeString.toIntOrNull() ?: 0
+
+                // Now we pass both name and stake when creating PlayerData
                 players.add(PlayerData(playerName, playerStake))
             }
         }
         val gameData = GameData(gameNameEditText.text.toString(), players)
         return Gson().toJson(gameData)
     }
+
 
     private fun saveGameData(jsonData: String) {
         val file = File(filesDir, "gameData.json")
