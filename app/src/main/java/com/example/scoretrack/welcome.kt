@@ -21,3 +21,41 @@ button.setOnClickListener {
     val intent = Intent(this, BlackjackActivity::class.java)
     startActivity(intent)
 }
+
+
+/* spel 2 ( Poker )*/
+
+
+val button = findViewById<ImageButton>(R.id.poker)
+
+button.setOnClickListener {
+    val intent = Intent(this, activity_poker::class.java)
+    startActivity(intent)
+}
+
+
+
+
+/* spel 3 ( ManualTracking )*/
+
+val button = findViewById<ImageButton>(R.id.manualTracking)
+
+button.setOnClickListener {
+    val intent = Intent(this, activity_manualTracking::class.java)
+    startActivity(intent)
+}
+
+
+
+
+
+
+
+/* spel 4 ( comingSoon )*/
+
+val button = findViewById<ImageButton>(R.id.comingSoon)
+
+button.setOnClickListener {
+    val intent = Intent(this, activity_comingSoon::class.java)
+    startActivity(intent)
+}
