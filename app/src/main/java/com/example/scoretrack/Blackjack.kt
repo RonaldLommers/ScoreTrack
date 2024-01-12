@@ -42,9 +42,7 @@ class Blackjack : AppCompatActivity() {
                 saveGameData(jsonData)
                 Toast.makeText(this, "Game data saved", Toast.LENGTH_SHORT).show()
 
-                // Create an Intent to start BlackjackGame activity
                 val intent = Intent(this, BlackjackGame::class.java)
-                // Pass the serialized game data
                 intent.putExtra("gameData", jsonData)
                 startActivity(intent)
             } else {
@@ -164,10 +162,10 @@ class Blackjack : AppCompatActivity() {
             val row = playersLayout.getChildAt(i) as LinearLayout
             for (j in 0 until row.childCount) {
                 val playerView = row.getChildAt(j) as LinearLayout
-                val playerNumber = (j + 1).toString()  // Assign player numbers sequentially
+                val playerNumber = (j + 1).toString()
                 val playerName = (playerView.getChildAt(1) as EditText).text.toString()
                 val playerStakeString = (playerView.getChildAt(2) as EditText).text.toString()
-                val playerStake = playerStakeString.toIntOrNull() ?: 0 // Convert to Int
+                val playerStake = playerStakeString.toIntOrNull() ?: 0
 
                 players.add(PlayerData(playerNumber, playerName, playerStake))
             }
@@ -175,8 +173,6 @@ class Blackjack : AppCompatActivity() {
         val gameData = GameData(gameNameEditText.text.toString(), players)
         return Gson().toJson(gameData)
     }
-
-
 
     private fun saveGameData(jsonData: String) {
         val file = File(filesDir, "gameData.json")

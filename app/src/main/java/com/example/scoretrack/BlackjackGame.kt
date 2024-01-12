@@ -2,6 +2,7 @@ package com.example.scoretrack
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -35,11 +36,15 @@ class BlackjackGame : AppCompatActivity() {
         if (gameDataJson.isNullOrEmpty()) {
             showToastAndNavigateBack()
             return
+        } else {
+            // For debugging, you can log the received JSON
+            Log.d("BlackjackGame", "Received game data: $gameDataJson")
         }
 
         val gameData = try {
             Gson().fromJson(gameDataJson, GameData::class.java)
         } catch (e: Exception) {
+            e.printStackTrace() // Log the exception for debugging
             showToastAndNavigateBack()
             return
         }
@@ -65,7 +70,10 @@ class BlackjackGame : AppCompatActivity() {
     private fun addPlayerViews() {
         val constraintLayout = findViewById<ConstraintLayout>(R.id.mainLayout)
 
-        for (i in 0 until playerCount) {
+        val maxPlayersToShow = 6
+        val loopLimit = minOf(playerCount, maxPlayersToShow) // Limit the loop to 6 or less players
+
+        for (i in 0 until loopLimit) {
             val player = players[i]
 
             // Create and add ImageView for player icon
@@ -93,7 +101,8 @@ class BlackjackGame : AppCompatActivity() {
         }
     }
 
-    private fun updateDealerAndPlayerStakes(playerNumber: String, playerBet: Int, outcome: String) {
+    // Add this new function to handle player outcomes and update stakes
+    private fun handleOutcome(playerNumber: String, playerBet: Int, outcome: String) {
         val player = players.find { it.playerNumber == playerNumber }
 
         player?.let {
