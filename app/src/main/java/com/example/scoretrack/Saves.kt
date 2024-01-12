@@ -19,7 +19,7 @@ import kotlin.time.Duration.Companion.seconds
 
 class Saves : AppCompatActivity() {
 
-    var savesPath = "saves.json"
+    var savesPath = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,41 +30,38 @@ class Saves : AppCompatActivity() {
     fun loadSaves() {
         val textView = findViewById<TextView>(R.id.tv_saves)
         val textView2 = findViewById<TextView>(R.id.tv_saves2)
-
-        var jsonFile = loadJSON(savesPath)
-        jsonFile = null
-        if(jsonFile == null){
-            Log.d("KUT_KOTLIN", "JSON niet gevonden, laad test JSON")
-            jsonFile = loadJSONFromAsset(savesPath)
-        }else{
-            Log.d("KUT_KOTLIN", jsonFile)
+        if (savesPath == "") {
+            savesPath = this.getFilesDir().toString() + "/saves.json"
         }
 
-        textView2.text = loadJSON(savesPath)
 
+        var jsonFile = File(savesPath)
+        var jsonContent = ""
+        Log.d("KUT_KOTLIN", jsonFile.exists().toString())
+
+        if(!jsonFile.exists() || jsonFile.readText() == ""){
+            Log.d("KUT_KOTLIN", "JSON niet gevonden, laad test JSON")
+            jsonContent = loadJSONFromAsset("saves.json").toString()
+            jsonFile.writeText(jsonContent)
+        }else{
+            jsonContent = jsonFile.readText()
+//            Log.d("KUT_KOTLIN", jsonContent)
+        }
+
+//        textView2.text = jsonContent
 
         val gson = GsonBuilder().setDateFormat("dd-mm-yyyy hh:mm:ss").create()
-
-//        val save:Save = gson.fromJson(jsonFile, Save::class.java)
         val collectionType: Type? = object : TypeToken<Collection<Save>>() {}.getType()
-        val saves: Collection<Save>? = gson.fromJson(jsonFile, collectionType)
-
-//        val saves: Array<Save> = gson.fromJson(
-//            jsonFile,
-//            Array<Save>::class.java
-//        )
-
+        val saves: Collection<Save>? = gson.fromJson(jsonContent, collectionType)
 
         if (saves != null) {
             val save = saves.elementAt(0)
-//            val sessies = save.saves
 
-//            saves.elementAt(0).speltype = "Jatzee"
             textView.text = "Op ${save.startdatum} startte ${save.spelers} met het spel ${save.speltype}"
 
-            saves.elementAt(0).speltype = "Jatzee shit"
+            saves.elementAt(0).speltype = "Yahtzee"
             val jsonString:String = gson.toJson(saves)
-            writeJSON(savesPath, jsonString)
+            jsonFile.writeText(jsonString)
         }
 
 
@@ -89,38 +86,6 @@ class Saves : AppCompatActivity() {
             return null
         }
         return json
-    }
-
-    fun loadJSON(jsonPath: String): String? {
-        var json: String? = null
-        json = try {
-            val `is`: InputStream = openFileInput(jsonPath)
-            val size = `is`.available()
-            val buffer = ByteArray(size)
-            `is`.read(buffer)
-            `is`.close()
-            String(buffer, charset("UTF-8"))
-        } catch (ex: IOException) {
-            ex.printStackTrace()
-            return null
-        }
-        return json
-    }
-
-    fun writeJSON(jsonPath: String, newJSON: String) {
-        Log.d("KUT_KOTLIN", "WERK NU")
-        try {
-            val file = File(jsonPath)
-            file.delete()
-
-            val os: OutputStream = openFileOutput("saves.json", MODE_APPEND)
-            os.write(newJSON.toByteArray())
-            os.close()
-            Log.d("KUT_KOTLIN", "als je dit leest hoop ik dat die het fucking bestand heeft opgeslagen")
-        } catch (ex: IOException) {
-//            ex.printStackTrace()
-            Log.d("KUT_KOTLIN", ex.stackTraceToString())
-        }
     }
 }
 
