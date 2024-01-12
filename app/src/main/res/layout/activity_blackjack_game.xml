@@ -33,22 +33,16 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.80" />
 
-    <TextView
-        android:id="@+id/dealerStakeView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Dealer Stake"
-        tools:ignore="MissingConstraints" />
-
-
     <!-- Player 1 Icon -->
     <ImageView
         android:id="@+id/playerIcon1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="78dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="60dp"
         android:src="@drawable/ic_player_icon"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="@id/leftGuideline" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Player 1 Name -->
     <TextView
@@ -73,11 +67,13 @@
     <!-- Player 2 Icon -->
     <ImageView
         android:id="@+id/playerIcon2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="78dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="204dp"
         android:src="@drawable/ic_player_icon"
-        app:layout_constraintTop_toBottomOf="@id/playerIcon1"
-        app:layout_constraintStart_toStartOf="@id/leftGuideline" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/playerIcon1" />
 
     <!-- Player 2 Name -->
     <TextView
@@ -102,11 +98,13 @@
     <!-- Player 3 Icon -->
     <ImageView
         android:id="@+id/playerIcon3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="78dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="180dp"
         android:src="@drawable/ic_player_icon"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@id/leftGuideline" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <!-- Player 3 Name -->
     <TextView
@@ -131,11 +129,14 @@
     <!-- Player 4 Icon -->
     <ImageView
         android:id="@+id/playerIcon4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="78dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="60dp"
         android:src="@drawable/ic_player_icon"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintEnd_toEndOf="@id/rightGuideline" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.883"
+        app:layout_constraintStart_toEndOf="@+id/playerIcon1"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Player 4 Name -->
     <TextView
@@ -160,11 +161,13 @@
     <!-- Player 5 Icon -->
     <ImageView
         android:id="@+id/playerIcon5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="78dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="204dp"
+        android:layout_marginEnd="32dp"
         android:src="@drawable/ic_player_icon"
-        app:layout_constraintTop_toBottomOf="@id/playerIcon4"
-        app:layout_constraintEnd_toEndOf="@id/rightGuideline" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/playerIcon4" />
 
     <!-- Player 5 Name -->
     <TextView
@@ -189,11 +192,13 @@
     <!-- Player 6 Icon -->
     <ImageView
         android:id="@+id/playerIcon6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="78dp"
+        android:layout_height="78dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="192dp"
         android:src="@drawable/ic_player_icon"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/rightGuideline" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Player 6 Name -->
     <TextView
@@ -218,12 +223,25 @@
     <!-- Dealer Icon -->
     <ImageView
         android:id="@+id/dealerIcon"
+        android:layout_width="167dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/ic_dealericon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Dealer Stake TextView -->
+    <TextView
+        android:id="@+id/dealerStakeView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_dealericon"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+        android:text="Dealer Stake: 0"
+    app:layout_constraintTop_toBottomOf="@id/dealerIcon"
+    app:layout_constraintStart_toStartOf="@id/dealerIcon"
+    app:layout_constraintEnd_toEndOf="@id/dealerIcon"
+    android:layout_marginTop="8dp" />
+
 
     <ImageView
         android:id="@+id/chip5000"
