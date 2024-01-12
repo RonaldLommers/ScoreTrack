@@ -221,9 +221,55 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_dealericon"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/chip5000"
+        android:layout_width="80dp"
+        android:layout_height="106dp"
+        app:srcCompat="@drawable/ic_5000chip"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="1dp"
+        android:layout_marginBottom="1dp" />
+
+    <ImageView
+        android:id="@+id/chip1000"
+        android:layout_width="80dp"
+        android:layout_height="106dp"
+        app:srcCompat="@drawable/ic_1000chip"
+        app:layout_constraintStart_toEndOf="@id/chip5000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="1dp" />
+
+    <ImageView
+        android:id="@+id/chip500"
+        android:layout_width="80dp"
+        android:layout_height="106dp"
+        app:srcCompat="@drawable/ic_500chip"
+        app:layout_constraintStart_toEndOf="@id/chip1000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="1dp" />
+
+    <ImageView
+        android:id="@+id/chip200"
+        android:layout_width="80dp"
+        android:layout_height="106dp"
+        app:srcCompat="@drawable/ic_200chip"
+        app:layout_constraintStart_toEndOf="@id/chip500"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="1dp" />
+
+    <ImageView
+        android:id="@+id/chip100"
+        android:layout_width="80dp"
+        android:layout_height="106dp"
+        app:srcCompat="@drawable/ic_100chip"
+        app:layout_constraintStart_toEndOf="@id/chip200"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="1dp" />
 
     <!-- TextViews for Dealer Name and Stake -->
     <!-- ... -->
