@@ -22,4 +22,5 @@
     <string name="title_activity_set_manual_tracking">SetManualTracking</string>
     <string name="start_game">start game</string>
     <string name="add">Add score</string>
+    <string name="submit">submit</string>
 </resources>

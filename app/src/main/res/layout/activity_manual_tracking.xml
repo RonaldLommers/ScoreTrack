@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@color/green">
+    android:background="@color/green"
+    tools:ignore="UseSwitchCompatOrMaterialXml">
 
     <Button
         android:id="@+id/goback"
@@ -39,13 +40,19 @@
                 android:textSize="30sp"
                 android:text=""
                 android:textColor="#fff"/>
-            <TextView
-                android:id="@+id/displayInteger1"
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:textSize="30sp"
-                android:text=""
-                android:textColor="#fff" />
+                android:layout_height="match_parent"
+                android:id="@+id/scrollview1">
+                <TextView
+                    android:id="@+id/displayInteger1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:textSize="30sp"
+                    android:text=""
+                    android:textColor="#fff" />
+            </HorizontalScrollView>
+
         </TableRow>
 
         <TableRow android:id="@+id/TR2">
@@ -56,13 +63,18 @@
                 android:textSize="30sp"
                 android:text=""
                 android:textColor="#fff"/>
-            <TextView
-                android:id="@+id/displayInteger2"
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:textSize="30sp"
-                android:text=""
-                android:textColor="#fff" />
+                android:layout_height="match_parent"
+                android:id="@+id/scrollview2">
+                <TextView
+                    android:id="@+id/displayInteger2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:textSize="30sp"
+                    android:text=""
+                    android:textColor="#fff" />
+            </HorizontalScrollView>
         </TableRow>
 
         <TableRow android:id="@+id/TR3">
@@ -73,13 +85,18 @@
                 android:textSize="30sp"
                 android:text=""
                 android:textColor="#fff"/>
-            <TextView
-                android:id="@+id/displayInteger3"
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:textSize="30sp"
-                android:text=""
-                android:textColor="#fff" />
+                android:layout_height="match_parent"
+                android:id="@+id/scrollview3">
+                <TextView
+                    android:id="@+id/displayInteger3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:textSize="30sp"
+                    android:text=""
+                    android:textColor="#fff" />
+            </HorizontalScrollView>
         </TableRow>
 
         <TableRow android:id="@+id/TR4">
@@ -90,13 +107,18 @@
                 android:textSize="30sp"
                 android:text=""
                 android:textColor="#fff"/>
-            <TextView
-                android:id="@+id/displayInteger4"
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:textSize="30sp"
-                android:text=""
-                android:textColor="#fff" />
+                android:layout_height="match_parent"
+                android:id="@+id/scrollview4">
+                <TextView
+                    android:id="@+id/displayInteger4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:textSize="30sp"
+                    android:text=""
+                    android:textColor="#fff" />
+            </HorizontalScrollView>
         </TableRow>
 
         <TableRow android:id="@+id/TR5">
@@ -107,13 +129,18 @@
                 android:textSize="30sp"
                 android:text=""
                 android:textColor="#fff"/>
-            <TextView
-                android:id="@+id/displayInteger5"
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:textSize="30sp"
-                android:text=""
-                android:textColor="#fff" />
+                android:layout_height="match_parent"
+                android:id="@+id/scrollview5">
+                <TextView
+                    android:id="@+id/displayInteger5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:textSize="30sp"
+                    android:text=""
+                    android:textColor="#fff"/>
+            </HorizontalScrollView>
         </TableRow>
     </TableLayout>
 
@@ -131,11 +158,11 @@
                 android:textSize="30sp"
                 android:text=""
                 android:textColor="#fff"/>
-            <TextView
-                android:id="@+id/DI1"
-                android:layout_width="match_parent"
+            <EditText
+                android:id="@+id/I1"
+                android:layout_width="100dp"
                 android:layout_height="48dp"
-                android:textSize="30sp"
+                android:textSize="25sp"
                 android:text=""
                 android:textColor="#fff" />
         </TableRow>
@@ -148,11 +175,11 @@
                 android:textSize="30sp"
                 android:text=""
                 android:textColor="#fff"/>
-            <TextView
-                android:id="@+id/DI2"
-                android:layout_width="match_parent"
+            <EditText
+                android:id="@+id/I2"
+                android:layout_width="100dp"
                 android:layout_height="48dp"
-                android:textSize="30sp"
+                android:textSize="25sp"
                 android:text=""
                 android:textColor="#fff" />
         </TableRow>
@@ -165,11 +192,11 @@
                 android:textSize="30sp"
                 android:text=""
                 android:textColor="#fff"/>
-            <TextView
-                android:id="@+id/DI3"
-                android:layout_width="match_parent"
+            <EditText
+                android:id="@+id/I3"
+                android:layout_width="100dp"
                 android:layout_height="48dp"
-                android:textSize="30sp"
+                android:textSize="25sp"
                 android:text=""
                 android:textColor="#fff" />
         </TableRow>
@@ -182,11 +209,11 @@
                 android:textSize="30sp"
                 android:text=""
                 android:textColor="#fff"/>
-            <TextView
-                android:id="@+id/DI4"
-                android:layout_width="match_parent"
+            <EditText
+                android:id="@+id/I4"
+                android:layout_width="100dp"
                 android:layout_height="48dp"
-                android:textSize="30sp"
+                android:textSize="25sp"
                 android:text=""
                 android:textColor="#fff" />
         </TableRow>
@@ -199,11 +226,11 @@
                 android:textSize="30sp"
                 android:text=""
                 android:textColor="#fff"/>
-            <TextView
-                android:id="@+id/DI5"
-                android:layout_width="match_parent"
+            <EditText
+                android:id="@+id/I5"
+                android:layout_width="100dp"
                 android:layout_height="48dp"
-                android:textSize="30sp"
+                android:textSize="25sp"
                 android:text=""
                 android:textColor="#fff" />
         </TableRow>
