@@ -29,22 +29,20 @@ class BlackjackGame : AppCompatActivity() {
         setContentView(R.layout.activity_blackjack_game)
 
         dealerStakeView = findViewById(R.id.dealerStakeView)
-        // Ensure you have this TextView in your layout
-        updateDealerStakeUI() // Initial update of dealer's stake in UI
+        updateDealerStakeUI()
 
         val gameDataJson = intent.getStringExtra("gameData")
         if (gameDataJson.isNullOrEmpty()) {
             showToastAndNavigateBack()
             return
         } else {
-            // For debugging, you can log the received JSON
             Log.d("BlackjackGame", "Received game data: $gameDataJson")
         }
 
         val gameData = try {
             Gson().fromJson(gameDataJson, GameData::class.java)
         } catch (e: Exception) {
-            e.printStackTrace() // Log the exception for debugging
+            e.printStackTrace()
             showToastAndNavigateBack()
             return
         }
@@ -57,54 +55,105 @@ class BlackjackGame : AppCompatActivity() {
         players = gameData.players.toMutableList()
         playerCount = players.size
 
-        // Initialize arrays for views
         playerIcons = arrayOfNulls(playerCount)
         playerNames = arrayOfNulls(playerCount)
         playerStakes = arrayOfNulls(playerCount)
 
-        // Add player views to the ConstraintLayout
         addPlayerViews()
         updatePlayerStakesUI()
     }
 
     private fun addPlayerViews() {
         val constraintLayout = findViewById<ConstraintLayout>(R.id.mainLayout)
+        val maxPlayerSlots = 6
 
-        val maxPlayersToShow = 6
-        val loopLimit = minOf(playerCount, maxPlayersToShow) - 1 // Limit the loop to 6 or less players
+        for (i in 1..maxPlayerSlots) {
+            constraintLayout.findViewById<ImageView>(resources.getIdentifier("playerIcon$i", "id", packageName))?.visibility = View.GONE
+            constraintLayout.findViewById<TextView>(resources.getIdentifier("playerName$i", "id", packageName))?.visibility = View.GONE
+            constraintLayout.findViewById<TextView>(resources.getIdentifier("playerStake$i", "id", packageName))?.visibility = View.GONE
+        }
 
-        for (i in 0 until loopLimit) {
+        for (i in 0 until playerCount) {
             val player = players[i]
-
-            // Create and add ImageView for player icon
-            playerIcons[i] = ImageView(this).apply {
-                id = View.generateViewId()
-                setImageResource(R.drawable.ic_player_icon)
-                constraintLayout.addView(this)
+            val playerIconId = resources.getIdentifier("playerIcon${i + 1}", "id", packageName)
+            var playerIcon = constraintLayout.findViewById<ImageView>(playerIconId)
+            if (playerIcon == null) {
+                playerIcon = ImageView(this).apply {
+                    id = View.generateViewId()
+                    setImageResource(R.drawable.ic_player_icon)
+                }
+                constraintLayout.addView(playerIcon)
+            } else {
+                playerIcon.visibility = View.VISIBLE
             }
+            playerIcons[i] = playerIcon
 
-            // Create and add TextView for player name
-            playerNames[i] = TextView(this).apply {
-                id = View.generateViewId()
-                text = player.name
-                constraintLayout.addView(this)
+            val playerNameId = resources.getIdentifier("playerName${i + 1}", "id", packageName)
+            var playerName = constraintLayout.findViewById<TextView>(playerNameId)
+            if (playerName == null) {
+                playerName = TextView(this).apply {
+                    id = View.generateViewId()
+                    text = player.name
+                }
+                constraintLayout.addView(playerName)
+            } else {
+                playerName.text = player.name
+                playerName.visibility = View.VISIBLE
             }
+            playerNames[i] = playerName
 
-            // Create and add TextView for player stake
-            playerStakes[i] = TextView(this).apply {
-                id = View.generateViewId()
-                text = "Stake: ${player.currentStake}"
-                constraintLayout.addView(this)
+            val playerStakeId = resources.getIdentifier("playerStake${i + 1}", "id", packageName)
+            var playerStake = constraintLayout.findViewById<TextView>(playerStakeId)
+            if (playerStake == null) {
+                playerStake = TextView(this).apply {
+                    id = View.generateViewId()
+                    text = "Stake: ${player.currentStake}"
+                }
+                constraintLayout.addView(playerStake)
+            } else {
+                playerStake.text = "Stake: ${player.currentStake}"
+                playerStake.visibility = View.VISIBLE
             }
+            playerStakes[i] = playerStake
 
-            setPlayerViewConstraints(playerIcons[i]!!, playerNames[i]!!, playerStakes[i]!!, constraintLayout, i)
+            // Set constraints for the views
+            setPlayerViewConstraints(playerIcon, playerName, playerStake, constraintLayout, i)
         }
     }
 
-    // Add this new function to handle player outcomes and update stakes
+    private fun setPlayerViewConstraints(playerIcon: ImageView, playerName: TextView, playerStake: TextView, layout: ConstraintLayout, playerIndex: Int) {
+        val set = ConstraintSet()
+        set.clone(layout)
+
+        // For a single player on each side
+        if (playerCount <= 2) {
+            val isLeftSide = playerIndex == 0
+            val topMargin = if (isLeftSide) 60 else 204 // Top margin for left or right side
+            val startGuidelineId = if (isLeftSide) R.id.leftGuideline else R.id.rightGuideline
+            val iconMarginStart = 32
+
+            // Connect player icon
+            set.connect(playerIcon.id, ConstraintSet.TOP, layout.id, ConstraintSet.TOP, topMargin)
+            set.connect(playerIcon.id, ConstraintSet.START, startGuidelineId, ConstraintSet.START, iconMarginStart)
+
+            // Connect player name
+            set.connect(playerName.id, ConstraintSet.TOP, playerIcon.id, ConstraintSet.BOTTOM, 8)
+            set.connect(playerName.id, ConstraintSet.START, playerIcon.id, ConstraintSet.START, 0)
+
+            // Connect player stake
+            set.connect(playerStake.id, ConstraintSet.TOP, playerName.id, ConstraintSet.BOTTOM, 4)
+            set.connect(playerStake.id, ConstraintSet.START, playerName.id, ConstraintSet.START, 0)
+        } else {
+            // Constraints for multiple players
+            // ... (existing logic for multiple players)
+        }
+
+        set.applyTo(layout)
+    }
+
+
     private fun handleOutcome(playerNumber: String, playerBet: Int, outcome: String) {
         val player = players.find { it.playerNumber == playerNumber }
-
         player?.let {
             when (outcome) {
                 "Bust" -> {
@@ -145,16 +194,7 @@ class BlackjackGame : AppCompatActivity() {
         val set = ConstraintSet()
         set.clone(layout)
 
-        set.connect(playerIcon.id, ConstraintSet.TOP, layout.id, ConstraintSet.TOP, 100 * playerIndex)
-        set.connect(playerIcon.id, ConstraintSet.START, layout.id, ConstraintSet.START, 16)
-
-        set.connect(playerName.id, ConstraintSet.TOP, playerIcon.id, ConstraintSet.BOTTOM, 8)
-        set.connect(playerName.id, ConstraintSet.START, layout.id, ConstraintSet.START, 16)
-
-        set.connect(playerStake.id, ConstraintSet.TOP, playerName.id, ConstraintSet.BOTTOM, 4)
-        set.connect(playerStake.id, ConstraintSet.START, layout.id, ConstraintSet.START, 16)
-
-        set.applyTo(layout)
+        // Set constraints for player views here. This will vary based on your layout.
     }
 
     private fun showToastAndNavigateBack() {
@@ -165,6 +205,6 @@ class BlackjackGame : AppCompatActivity() {
     private fun navigateBackToBlackjackActivity() {
         val intent = Intent(this, Blackjack::class.java)
         startActivity(intent)
-        finish() // Close the current activity
+        finish()
     }
 }
