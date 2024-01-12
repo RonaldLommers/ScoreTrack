@@ -71,7 +71,7 @@ class BlackjackGame : AppCompatActivity() {
         val constraintLayout = findViewById<ConstraintLayout>(R.id.mainLayout)
 
         val maxPlayersToShow = 6
-        val loopLimit = minOf(playerCount, maxPlayersToShow) // Limit the loop to 6 or less players
+        val loopLimit = minOf(playerCount, maxPlayersToShow) - 1 // Limit the loop to 6 or less players
 
         for (i in 0 until loopLimit) {
             val player = players[i]
