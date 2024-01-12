@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.gson.Gson
 
+
 class BlackjackGame : AppCompatActivity() {
 
     private val initialDealerStake = 200000
@@ -20,6 +21,7 @@ class BlackjackGame : AppCompatActivity() {
     private lateinit var playerIcons: Array<ImageView?>
     private lateinit var playerNames: Array<TextView?>
     private lateinit var playerStakes: Array<TextView?>
+    private lateinit var showBetView: TextView
     private var players: MutableList<PlayerData> = mutableListOf()
     private var playerCount = 0
     private var currentPlayerIndex = 0
@@ -80,10 +82,14 @@ class BlackjackGame : AppCompatActivity() {
             currentPlayer.currentBet += amount
             showBetView.text = "Bet: ${currentPlayer.currentBet}"
             Toast.makeText(this, "$amount is added", Toast.LENGTH_SHORT).show()
+
+            // Adding a log message to logcat
+            Log.d("BlackjackGame", "Added $amount to current bet. Total bet: ${currentPlayer.currentBet}")
         } else {
             Toast.makeText(this, "Invalid player turn", Toast.LENGTH_SHORT).show()
         }
     }
+
 
     private fun addPlayerViews() {
         val constraintLayout = findViewById<ConstraintLayout>(R.id.mainLayout)
