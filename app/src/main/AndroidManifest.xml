@@ -49,9 +49,6 @@
         <!-- android:name=".M" -->
         <!-- android:exported="false" /> -->
         <activity
-            android:name=".Accountinstellingen"
-            android:exported="false" />
-        <activity
             android:name=".splash"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
