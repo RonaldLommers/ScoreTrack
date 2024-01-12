@@ -158,21 +158,26 @@ class Blackjack : AppCompatActivity() {
 
     private fun serializeGameData(): String {
         val players = mutableListOf<PlayerData>()
+        var currentPlayerNumber = 1 // Start from player number 1
+
         for (i in 0 until playersLayout.childCount) {
             val row = playersLayout.getChildAt(i) as LinearLayout
             for (j in 0 until row.childCount) {
                 val playerView = row.getChildAt(j) as LinearLayout
-                val playerNumber = (j + 1).toString()
+                val playerNumber = currentPlayerNumber.toString() // Assign current player number
                 val playerName = (playerView.getChildAt(1) as EditText).text.toString()
                 val playerStakeString = (playerView.getChildAt(2) as EditText).text.toString()
-                val playerStake = playerStakeString.toIntOrNull() ?: 0
+                val playerStake = playerStakeString.toIntOrNull() ?: 0 // Convert to Int
 
                 players.add(PlayerData(playerNumber, playerName, playerStake))
+                currentPlayerNumber++ // Increment for the next player
             }
         }
+
         val gameData = GameData(gameNameEditText.text.toString(), players)
         return Gson().toJson(gameData)
     }
+
 
     private fun saveGameData(jsonData: String) {
         val file = File(filesDir, "gameData.json")
