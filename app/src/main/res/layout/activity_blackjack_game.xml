@@ -6,7 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".BlackjackGame">
 
-    <!-- Background Image View -->
+    <TextView
+        android:id="@+id/showBetView"
+        android:layout_width="128dp"
+        android:layout_height="51dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="551dp" />
+
+
     <ImageView
         android:id="@+id/bgImageView"
         android:layout_width="0dp"

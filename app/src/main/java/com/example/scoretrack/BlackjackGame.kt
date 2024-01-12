@@ -9,7 +9,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.constraintlayout.widget.ConstraintSet
 import com.google.gson.Gson
 
 class BlackjackGame : AppCompatActivity() {
@@ -17,19 +16,22 @@ class BlackjackGame : AppCompatActivity() {
     private val initialDealerStake = 200000
     private var dealerStake = initialDealerStake
 
-    private lateinit var dealerStakeView: TextView // TextView for displaying dealer's stake
+    private lateinit var dealerStakeView: TextView
     private lateinit var playerIcons: Array<ImageView?>
     private lateinit var playerNames: Array<TextView?>
     private lateinit var playerStakes: Array<TextView?>
     private var players: MutableList<PlayerData> = mutableListOf()
     private var playerCount = 0
+    private var currentPlayerIndex = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_blackjack_game)
 
         dealerStakeView = findViewById(R.id.dealerStakeView)
+        showBetView = findViewById(R.id.showBetView) // Assuming this is your TextView ID
         updateDealerStakeUI()
+        setupChipClickListeners()
 
         val gameDataJson = intent.getStringExtra("gameData")
         if (gameDataJson.isNullOrEmpty()) {
@@ -61,6 +63,26 @@ class BlackjackGame : AppCompatActivity() {
 
         addPlayerViews()
         updatePlayerStakesUI()
+        startTurn(currentPlayerIndex)
+    }
+
+    private fun setupChipClickListeners() {
+        findViewById<ImageView>(R.id.chip100).setOnClickListener { increaseBet(100) }
+        findViewById<ImageView>(R.id.chip200).setOnClickListener { increaseBet(200) }
+        findViewById<ImageView>(R.id.chip500).setOnClickListener { increaseBet(500) }
+        findViewById<ImageView>(R.id.chip1000).setOnClickListener { increaseBet(1000) }
+        findViewById<ImageView>(R.id.chip5000).setOnClickListener { increaseBet(5000) }
+    }
+
+    private fun increaseBet(amount: Int) {
+        if (currentPlayerIndex in players.indices) {
+            val currentPlayer = players[currentPlayerIndex]
+            currentPlayer.currentBet += amount
+            showBetView.text = "Bet: ${currentPlayer.currentBet}"
+            Toast.makeText(this, "$amount is added", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Invalid player turn", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun addPlayerViews() {
@@ -115,69 +137,7 @@ class BlackjackGame : AppCompatActivity() {
                 playerStake.visibility = View.VISIBLE
             }
             playerStakes[i] = playerStake
-
-            // Set constraints for the views
-            setPlayerViewConstraints(playerIcon, playerName, playerStake, constraintLayout, i)
         }
-    }
-
-    private fun setPlayerViewConstraints(playerIcon: ImageView, playerName: TextView, playerStake: TextView, layout: ConstraintLayout, playerIndex: Int) {
-        val set = ConstraintSet()
-        set.clone(layout)
-
-        // For a single player on each side
-        if (playerCount <= 2) {
-            val isLeftSide = playerIndex == 0
-            val topMargin = if (isLeftSide) 60 else 204 // Top margin for left or right side
-            val startGuidelineId = if (isLeftSide) R.id.leftGuideline else R.id.rightGuideline
-            val iconMarginStart = 32
-
-            // Connect player icon
-            set.connect(playerIcon.id, ConstraintSet.TOP, layout.id, ConstraintSet.TOP, topMargin)
-            set.connect(playerIcon.id, ConstraintSet.START, startGuidelineId, ConstraintSet.START, iconMarginStart)
-
-            // Connect player name
-            set.connect(playerName.id, ConstraintSet.TOP, playerIcon.id, ConstraintSet.BOTTOM, 8)
-            set.connect(playerName.id, ConstraintSet.START, playerIcon.id, ConstraintSet.START, 0)
-
-            // Connect player stake
-            set.connect(playerStake.id, ConstraintSet.TOP, playerName.id, ConstraintSet.BOTTOM, 4)
-            set.connect(playerStake.id, ConstraintSet.START, playerName.id, ConstraintSet.START, 0)
-        } else {
-            // Constraints for multiple players
-            // ... (existing logic for multiple players)
-        }
-
-        set.applyTo(layout)
-    }
-
-
-    private fun handleOutcome(playerNumber: String, playerBet: Int, outcome: String) {
-        val player = players.find { it.playerNumber == playerNumber }
-        player?.let {
-            when (outcome) {
-                "Bust" -> {
-                    dealerStake += playerBet
-                    it.currentStake -= playerBet
-                }
-                "Win" -> {
-                    dealerStake -= playerBet
-                    it.currentStake += playerBet
-                }
-                "Blackjack" -> {
-                    val winnings = (playerBet * 1.5).toInt()
-                    dealerStake -= winnings
-                    it.currentStake += winnings
-                }
-                "X2" -> {
-                    val winnings = playerBet * 2
-                    dealerStake -= winnings
-                    it.currentStake += winnings
-                }
-            }
-            updatePlayerStakesUI()
-            updateDealerStakeUI()
-        } ?: Toast.makeText(this, "Player not found", Toast.LENGTH_SHORT).show()
     }
 
     private fun updatePlayerStakesUI() {
@@ -186,15 +146,26 @@ class BlackjackGame : AppCompatActivity() {
         }
     }
 
-    private fun updateDealerStakeUI() {
-        dealerStakeView.text = "Dealer Stake: $dealerStake"
+    private fun startTurn(playerIndex: Int) {
+        highlightCurrentPlayerIcon(playerIndex)
+        // Handle player's turn logic here
     }
 
-    private fun setPlayerViewConstraints(playerIcon: ImageView, playerName: TextView, playerStake: TextView, layout: ConstraintLayout, playerIndex: Int) {
-        val set = ConstraintSet()
-        set.clone(layout)
+    private fun highlightCurrentPlayerIcon(playerIndex: Int) {
+        for (i in players.indices) {
+            val playerIcon = playerIcons[i]
+            if (i == playerIndex) {
+                // Set to active icon
+                playerIcon?.setImageResource(R.drawable.ic_player_icon_active)
+            } else {
+                // Set to regular icon
+                playerIcon?.setImageResource(R.drawable.ic_player_icon)
+            }
+        }
+    }
 
-        // Set constraints for player views here. This will vary based on your layout.
+    private fun updateDealerStakeUI() {
+        dealerStakeView.text = "Dealer Stake: $dealerStake"
     }
 
     private fun showToastAndNavigateBack() {
@@ -207,4 +178,6 @@ class BlackjackGame : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
+
+    // Add more game logic and methods as needed
 }
