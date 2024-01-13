@@ -16,7 +16,7 @@ class activity_spelomschrijving_blackjack : AppCompatActivity() {
 val button = findViewById<ImageButton>(R.id.bj_terug)
 
 button.setOnClickListener {
-    val intent = Intent(this, activity_spelomschrijving_blackjack::class.java)
-    startActivity(intent)
+    val doorsturen = Intent(this, activity_spelomschrijving_blackjack::class.java)
+    startActivity(doorsturen)
 }
 
