@@ -50,6 +50,32 @@
         app:layout_constraintTop_toBottomOf="@id/showBetView"
         tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
 
+    <Button
+        android:id="@+id/nextPlayerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="#538B5C"
+        android:text="Next"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@id/resetBetButton"
+        app:layout_constraintStart_toStartOf="@id/resetBetButton"
+        app:layout_constraintTop_toBottomOf="@id/resetBetButton"
+        tools:ignore="TextContrastCheck" />
+
+    <Button
+        android:id="@+id/startGameButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        android:background="#538B5C"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/resetBetButton"
+        app:layout_constraintStart_toStartOf="@id/resetBetButton"
+        app:layout_constraintEnd_toEndOf="@id/resetBetButton"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"/>
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/leftGuideline"
@@ -122,7 +148,8 @@
         android:shadowColor="#000000"
         android:shadowDx="5"
         android:shadowDy="5"
-        android:shadowRadius="5"/>
+        android:shadowRadius="5"
+        tools:ignore="HardcodedText" />
 
     <!-- Player 2 Icon -->
     <ImageView
@@ -477,6 +504,51 @@
         app:layout_constraintStart_toEndOf="@id/chip200"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="1dp" />
+
+    <ImageView
+        android:id="@+id/buttonBlackjack"
+        android:layout_width="80dp"
+        android:layout_height="106dp"
+        app:srcCompat="@drawable/ic_buttonbj"
+        android:layout_margin="8dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/startGameButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/buttonWin"
+        android:layout_width="80dp"
+        android:layout_height="106dp"
+        app:srcCompat="@drawable/ic_buttonwin"
+        android:layout_margin="8dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/buttonBlackjack"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <ImageView
+        android:id="@+id/buttonBust"
+        android:layout_width="80dp"
+        android:layout_height="106dp"
+        app:srcCompat="@drawable/ic_buttonbust"
+        android:layout_margin="8dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/buttonWin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:id="@+id/buttonX2"
+        android:layout_width="80dp"
+        android:layout_height="106dp"
+        app:srcCompat="@drawable/ic_buttonx2"
+        android:layout_margin="8dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/buttonBust"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- TextViews for Dealer Name and Stake -->
     <!-- ... -->
