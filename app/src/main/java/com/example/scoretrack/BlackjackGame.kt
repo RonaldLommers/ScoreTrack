@@ -62,6 +62,8 @@ class BlackjackGame : AppCompatActivity() {
         startTurn(currentPlayerIndex)
     }
 
+
+
     private fun setupChipClickListeners() {
         findViewById<ImageView>(R.id.chip100).setOnClickListener { increaseBet(100) }
         findViewById<ImageView>(R.id.chip200).setOnClickListener { increaseBet(200) }
@@ -114,53 +116,67 @@ class BlackjackGame : AppCompatActivity() {
 
     private fun initializePlayerViews() {
         val constraintLayout = findViewById<ConstraintLayout>(R.id.mainLayout)
-        playerIcons = arrayOfNulls(playerCount)
-        playerNames = arrayOfNulls(playerCount)
-        playerStakes = arrayOfNulls(playerCount)
-        playerBets = arrayOfNulls(playerCount)
 
-        addPlayerViews(constraintLayout)
-        updatePlayerStakesUI()
+        // Initialize player views based on the number of players
+        playerIcons = arrayOfNulls(players.size)
+        playerNames = arrayOfNulls(players.size)
+        playerStakes = arrayOfNulls(players.size)
+        playerBets = arrayOfNulls(players.size)
+
+        for (i in players.indices) {
+            val player = players[i]
+            val playerIndex = i + 1 // Player index starts from 1
+
+            playerIcons[i] = constraintLayout.findViewById(
+                resources.getIdentifier("playerIcon$playerIndex", "id", packageName))
+            playerNames[i] = constraintLayout.findViewById(
+                resources.getIdentifier("playerName$playerIndex", "id", packageName))
+            playerStakes[i] = constraintLayout.findViewById(
+                resources.getIdentifier("playerStake$playerIndex", "id", packageName))
+            playerBets[i] = constraintLayout.findViewById(
+                resources.getIdentifier("playerBet$playerIndex", "id", packageName))
+
+            playerNames[i]?.text = player.name
+            playerStakes[i]?.text = "Stake: ${player.currentStake}"
+            playerBets[i]?.text = "Bet: 0"
+        }
+
+        // Hide views for non-existent players
+        for (i in players.size + 1..6) {
+            val playerIconId = resources.getIdentifier("playerIcon$i", "id", packageName)
+            val playerNameId = resources.getIdentifier("playerName$i", "id", packageName)
+            val playerStakeId = resources.getIdentifier("playerStake$i", "id", packageName)
+            val playerBetId = resources.getIdentifier("playerBet$i", "id", packageName)
+
+            findViewById<ImageView>(playerIconId)?.visibility = View.GONE
+            findViewById<TextView>(playerNameId)?.visibility = View.GONE
+            findViewById<TextView>(playerStakeId)?.visibility = View.GONE
+            findViewById<TextView>(playerBetId)?.visibility = View.GONE
+        }
     }
 
+
+
     private fun addPlayerViews(constraintLayout: ConstraintLayout) {
-        for (i in 0 until playerCount) {
+        for (i in players.indices) {
             val player = players[i]
-            val playerIndex = i + 1
+            val playerIndex = i + 1 // Player index starts from 1
+
             playerIcons[i] = constraintLayout.findViewById(
-                resources.getIdentifier(
-                    "playerIcon$playerIndex",
-                    "id",
-                    packageName
-                )
-            )
+                resources.getIdentifier("playerIcon$playerIndex", "id", packageName))
             playerNames[i] = constraintLayout.findViewById(
-                resources.getIdentifier(
-                    "playerName$playerIndex",
-                    "id",
-                    packageName
-                )
-            )
+                resources.getIdentifier("playerName$playerIndex", "id", packageName))
             playerStakes[i] = constraintLayout.findViewById(
-                resources.getIdentifier(
-                    "playerStake$playerIndex",
-                    "id",
-                    packageName
-                )
-            )
+                resources.getIdentifier("playerStake$playerIndex", "id", packageName))
             playerBets[i] = constraintLayout.findViewById(
-                resources.getIdentifier(
-                    "playerBet$playerIndex",
-                    "id",
-                    packageName
-                )
-            )
+                resources.getIdentifier("playerBet$playerIndex", "id", packageName))
 
             playerNames[i]?.text = player.name
             playerStakes[i]?.text = "Stake: ${player.currentStake}"
             playerBets[i]?.text = "Bet: 0"
         }
     }
+
 
     private fun updatePlayerStakesUI() {
         for (i in players.indices) {
@@ -240,8 +256,6 @@ class BlackjackGame : AppCompatActivity() {
 
 
     private fun resetForNextRound() {
-        // Logic to reset the game for a new round
-
         // Reset each player's bet to zero for the new round
         players.forEach { player ->
             player.currentBet = 0
@@ -266,16 +280,18 @@ class BlackjackGame : AppCompatActivity() {
         // Make the betting interface visible again
         showBetView.visibility = View.VISIBLE
         resetBetButton.visibility = View.VISIBLE
+        nextPlayerButton.visibility = View.VISIBLE
 
-        // Since we are resetting for a new round, hide the 'Start Game' button
+        // Hide the start game button as it's only needed at the beginning
         startGameButton.visibility = View.GONE
 
-        // Reset the currentPlayerIndex to start the new round from the first player
+        // Reset the currentPlayerIndex to 0 to start the new round with the first player
         currentPlayerIndex = 0
+        startTurn(currentPlayerIndex)
 
-        // Optionally, you can show a toast message or update the UI to indicate a new round
         Toast.makeText(this, "New round started. Place your bets!", Toast.LENGTH_SHORT).show()
     }
+
 
     private fun moveToNextPlayer() {
         currentPlayerIndex++
