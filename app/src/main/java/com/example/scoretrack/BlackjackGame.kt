@@ -10,6 +10,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.gson.Gson
+import android.util.Log
+
 
 class BlackjackGame : AppCompatActivity() {
 
@@ -124,10 +126,34 @@ class BlackjackGame : AppCompatActivity() {
         for (i in 0 until playerCount) {
             val player = players[i]
             val playerIndex = i + 1
-            playerIcons[i] = constraintLayout.findViewById(resources.getIdentifier("playerIcon$playerIndex", "id", packageName))
-            playerNames[i] = constraintLayout.findViewById(resources.getIdentifier("playerName$playerIndex", "id", packageName))
-            playerStakes[i] = constraintLayout.findViewById(resources.getIdentifier("playerStake$playerIndex", "id", packageName))
-            playerBets[i] = constraintLayout.findViewById(resources.getIdentifier("playerBet$playerIndex", "id", packageName))
+            playerIcons[i] = constraintLayout.findViewById(
+                resources.getIdentifier(
+                    "playerIcon$playerIndex",
+                    "id",
+                    packageName
+                )
+            )
+            playerNames[i] = constraintLayout.findViewById(
+                resources.getIdentifier(
+                    "playerName$playerIndex",
+                    "id",
+                    packageName
+                )
+            )
+            playerStakes[i] = constraintLayout.findViewById(
+                resources.getIdentifier(
+                    "playerStake$playerIndex",
+                    "id",
+                    packageName
+                )
+            )
+            playerBets[i] = constraintLayout.findViewById(
+                resources.getIdentifier(
+                    "playerBet$playerIndex",
+                    "id",
+                    packageName
+                )
+            )
 
             playerNames[i]?.text = player.name
             playerStakes[i]?.text = "Stake: ${player.currentStake}"
@@ -264,17 +290,36 @@ class BlackjackGame : AppCompatActivity() {
     }
 
     private fun setupOutcomeButtons() {
-        buttonBlackjack.setOnClickListener { processOutcome("Blackjack") }
-        buttonWin.setOnClickListener { processOutcome("Win") }
-        buttonBust.setOnClickListener { processOutcome("Bust") }
-        buttonX2.setOnClickListener { processOutcome("X2") }
+        buttonBlackjack.setOnClickListener {
+            Log.d("BlackjackGame", "Blackjack button clicked")
+            processOutcome("Blackjack")
+        }
+        buttonWin.setOnClickListener {
+            Log.d("BlackjackGame", "Win button clicked")
+            processOutcome("Win")
+        }
+        buttonBust.setOnClickListener {
+            Log.d("BlackjackGame", "Bust button clicked")
+            processOutcome("Bust")
+        }
+        buttonX2.setOnClickListener {
+            Log.d("BlackjackGame", "X2 button clicked")
+            processOutcome("X2")
+        }
     }
 
     private fun processOutcome(outcome: String) {
         if (currentPlayerIndex in players.indices) {
             val currentPlayer = players[currentPlayerIndex]
             updateDealerStake(currentPlayer.currentBet, outcome)
-            moveToNextPlayer()
+
+            // Move to the next player
+            currentPlayerIndex++
+            if (currentPlayerIndex >= playerCount) {
+                currentPlayerIndex = 0
+                // Optionally, you can add logic here for what happens when all players have had their turn
+            }
+            startTurn(currentPlayerIndex)
         }
     }
 
@@ -302,6 +347,7 @@ class BlackjackGame : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
-
 }
+
+
 
