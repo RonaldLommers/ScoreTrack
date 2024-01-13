@@ -2,6 +2,7 @@ package com.example.scoretrack
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -22,6 +23,12 @@ class BlackjackGame : AppCompatActivity() {
     private lateinit var playerBets: Array<TextView?>
     private lateinit var showBetView: TextView
     private lateinit var resetBetButton: Button
+    private lateinit var nextPlayerButton: Button
+    private lateinit var startGameButton: Button
+    private lateinit var buttonBlackjack: ImageView
+    private lateinit var buttonWin: ImageView
+    private lateinit var buttonBust: ImageView
+    private lateinit var buttonX2: ImageView
     private var players: MutableList<PlayerData> = mutableListOf()
     private var playerCount = 0
     private var currentPlayerIndex = 0
@@ -33,14 +40,31 @@ class BlackjackGame : AppCompatActivity() {
         dealerStakeView = findViewById(R.id.dealerStakeView)
         showBetView = findViewById(R.id.showBetView)
         resetBetButton = findViewById(R.id.resetBetButton)
+        nextPlayerButton = findViewById(R.id.nextPlayerButton)
+        startGameButton = findViewById(R.id.startGameButton)
+        buttonBlackjack = findViewById(R.id.buttonBlackjack)
+        buttonWin = findViewById(R.id.buttonWin)
+        buttonBust = findViewById(R.id.buttonBust)
+        buttonX2 = findViewById(R.id.buttonX2)
+
         updateDealerStakeUI()
         setupChipClickListeners()
         setupResetBetButtonListener()
+        setupNextPlayerButtonListener()
+        setupStartGameButtonListener()
 
         processIncomingGameData()
         initializePlayerViews()
 
         startTurn(currentPlayerIndex)
+    }
+
+    private fun setupChipClickListeners() {
+        findViewById<ImageView>(R.id.chip100).setOnClickListener { increaseBet(100) }
+        findViewById<ImageView>(R.id.chip200).setOnClickListener { increaseBet(200) }
+        findViewById<ImageView>(R.id.chip500).setOnClickListener { increaseBet(500) }
+        findViewById<ImageView>(R.id.chip1000).setOnClickListener { increaseBet(1000) }
+        findViewById<ImageView>(R.id.chip5000).setOnClickListener { increaseBet(5000) }
     }
 
     private fun setupResetBetButtonListener() {
@@ -49,13 +73,15 @@ class BlackjackGame : AppCompatActivity() {
         }
     }
 
-    private fun resetCurrentPlayerBet() {
-        if (currentPlayerIndex in players.indices) {
-            val currentPlayer = players[currentPlayerIndex]
-            currentPlayer.currentBet = 0
-            showBetView.text = "Bet: 0"
-            playerBets[currentPlayerIndex]?.text = "Bet: 0"
-            Toast.makeText(this, "Bet reset to 0", Toast.LENGTH_SHORT).show()
+    private fun setupNextPlayerButtonListener() {
+        nextPlayerButton.setOnClickListener {
+            moveToNextPlayer()
+        }
+    }
+
+    private fun setupStartGameButtonListener() {
+        startGameButton.setOnClickListener {
+            startGame()
         }
     }
 
@@ -109,12 +135,17 @@ class BlackjackGame : AppCompatActivity() {
         }
     }
 
-    private fun setupChipClickListeners() {
-        findViewById<ImageView>(R.id.chip100).setOnClickListener { increaseBet(100) }
-        findViewById<ImageView>(R.id.chip200).setOnClickListener { increaseBet(200) }
-        findViewById<ImageView>(R.id.chip500).setOnClickListener { increaseBet(500) }
-        findViewById<ImageView>(R.id.chip1000).setOnClickListener { increaseBet(1000) }
-        findViewById<ImageView>(R.id.chip5000).setOnClickListener { increaseBet(5000) }
+    private fun updatePlayerStakesUI() {
+        for (i in players.indices) {
+            playerStakes[i]?.text = "Stake: ${players[i].currentStake}"
+        }
+    }
+
+    private fun updatePlayerBetsUI() {
+        // Update the UI for player bets
+        playerBets.forEachIndexed { index, textView ->
+            textView?.text = "Bet: ${players[index].currentBet}"
+        }
     }
 
     private fun increaseBet(amount: Int) {
@@ -129,9 +160,13 @@ class BlackjackGame : AppCompatActivity() {
         }
     }
 
-    private fun updatePlayerStakesUI() {
-        for (i in players.indices) {
-            playerStakes[i]?.text = "Stake: ${players[i].currentStake}"
+    private fun resetCurrentPlayerBet() {
+        if (currentPlayerIndex in players.indices) {
+            val currentPlayer = players[currentPlayerIndex]
+            currentPlayer.currentBet = 0
+            showBetView.text = "Bet: 0"
+            playerBets[currentPlayerIndex]?.text = "Bet: 0"
+            Toast.makeText(this, "Bet reset to 0", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -150,6 +185,109 @@ class BlackjackGame : AppCompatActivity() {
         }
     }
 
+    private fun startGame() {
+        // Hide betting interface
+        showBetView.visibility = View.GONE
+        resetBetButton.visibility = View.GONE
+        nextPlayerButton.visibility = View.GONE  // Hide next button during the game
+
+        // Hide betting chips
+        findViewById<ImageView>(R.id.chip5000).visibility = View.GONE
+        findViewById<ImageView>(R.id.chip1000).visibility = View.GONE
+        findViewById<ImageView>(R.id.chip500).visibility = View.GONE
+        findViewById<ImageView>(R.id.chip200).visibility = View.GONE
+        findViewById<ImageView>(R.id.chip100).visibility = View.GONE
+
+        // Show outcome buttons for game actions
+        buttonBlackjack.visibility = View.VISIBLE
+        buttonWin.visibility = View.VISIBLE
+        buttonBust.visibility = View.VISIBLE
+        buttonX2.visibility = View.VISIBLE
+
+        // Initialize game state
+        // Example: Set currentPlayerIndex to 0 to start with the first player
+        currentPlayerIndex = 0
+        startTurn(currentPlayerIndex)
+        // Additional game initialization logic here
+    }
+
+
+    private fun resetForNextRound() {
+        // Logic to reset the game for a new round
+
+        // Reset each player's bet to zero for the new round
+        players.forEach { player ->
+            player.currentBet = 0
+        }
+
+        // Update the UI to reflect the reset bets
+        updatePlayerBetsUI()
+
+        // Hide the outcome buttons as they are only needed during game play
+        buttonBlackjack.visibility = View.GONE
+        buttonWin.visibility = View.GONE
+        buttonBust.visibility = View.GONE
+        buttonX2.visibility = View.GONE
+
+        // Show the betting chips for the new round
+        findViewById<ImageView>(R.id.chip5000).visibility = View.VISIBLE
+        findViewById<ImageView>(R.id.chip1000).visibility = View.VISIBLE
+        findViewById<ImageView>(R.id.chip500).visibility = View.VISIBLE
+        findViewById<ImageView>(R.id.chip200).visibility = View.VISIBLE
+        findViewById<ImageView>(R.id.chip100).visibility = View.VISIBLE
+
+        // Make the betting interface visible again
+        showBetView.visibility = View.VISIBLE
+        resetBetButton.visibility = View.VISIBLE
+
+        // Since we are resetting for a new round, hide the 'Start Game' button
+        startGameButton.visibility = View.GONE
+
+        // Reset the currentPlayerIndex to start the new round from the first player
+        currentPlayerIndex = 0
+
+        // Optionally, you can show a toast message or update the UI to indicate a new round
+        Toast.makeText(this, "New round started. Place your bets!", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun moveToNextPlayer() {
+        currentPlayerIndex++
+        if (currentPlayerIndex >= playerCount) {
+            // If all players have taken their turn, show the "Start" button for the game
+            currentPlayerIndex = 0
+            nextPlayerButton.visibility = View.GONE
+            startGameButton.visibility = View.VISIBLE
+        } else {
+            // Otherwise, continue with the next player's turn
+            startTurn(currentPlayerIndex)
+        }
+    }
+
+    private fun setupOutcomeButtons() {
+        buttonBlackjack.setOnClickListener { processOutcome("Blackjack") }
+        buttonWin.setOnClickListener { processOutcome("Win") }
+        buttonBust.setOnClickListener { processOutcome("Bust") }
+        buttonX2.setOnClickListener { processOutcome("X2") }
+    }
+
+    private fun processOutcome(outcome: String) {
+        if (currentPlayerIndex in players.indices) {
+            val currentPlayer = players[currentPlayerIndex]
+            updateDealerStake(currentPlayer.currentBet, outcome)
+            moveToNextPlayer()
+        }
+    }
+
+    private fun updateDealerStake(playerBet: Int, outcome: String) {
+        when (outcome) {
+            "Bust" -> dealerStake += playerBet
+            "Win" -> dealerStake -= playerBet
+            "Blackjack" -> dealerStake -= (playerBet * 1.5).toInt()
+            "X2" -> dealerStake -= playerBet * 2
+        }
+        updateDealerStakeUI()
+    }
+
     private fun updateDealerStakeUI() {
         dealerStakeView.text = "Dealer Stake: $dealerStake"
     }
@@ -165,5 +303,5 @@ class BlackjackGame : AppCompatActivity() {
         finish()
     }
 
-    // Add more game logic and methods as needed
 }
+
