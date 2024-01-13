@@ -32,7 +32,9 @@
                 android:textColor="#fff"/>
         </TableRow>
 
-        <TableRow android:id="@+id/TR1">
+        <TableRow
+            android:id="@+id/TR1"
+            android:orientation="horizontal">
             <TextView
                 android:id="@+id/displayName1"
                 android:layout_width="match_parent"
@@ -41,8 +43,8 @@
                 android:text=""
                 android:textColor="#fff"/>
             <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/scrollview1">
                 <TextView
                     android:id="@+id/displayInteger1"
@@ -64,8 +66,8 @@
                 android:text=""
                 android:textColor="#fff"/>
             <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/scrollview2">
                 <TextView
                     android:id="@+id/displayInteger2"
@@ -86,8 +88,8 @@
                 android:text=""
                 android:textColor="#fff"/>
             <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/scrollview3">
                 <TextView
                     android:id="@+id/displayInteger3"
@@ -108,8 +110,8 @@
                 android:text=""
                 android:textColor="#fff"/>
             <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/scrollview4">
                 <TextView
                     android:id="@+id/displayInteger4"
@@ -130,8 +132,8 @@
                 android:text=""
                 android:textColor="#fff"/>
             <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/scrollview5">
                 <TextView
                     android:id="@+id/displayInteger5"

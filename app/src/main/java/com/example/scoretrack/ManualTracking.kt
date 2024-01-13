@@ -46,12 +46,6 @@ class ManualTrackingActivity : AppCompatActivity() {
         val i4 = findViewById<EditText>(R.id.I4)
         val i5 = findViewById<EditText>(R.id.I5)
 
-//        val ap1 = Array<Int>()
-//        val ap2 = mutableListOf<Int>()
-//        val ap3 = mutableListOf<Int>()
-//        val ap4 = mutableListOf<Int>()
-//        val ap5 = mutableListOf<Int>()
-
         // Retrieve data from Intent extras
         val title = intent.getStringExtra("title") ?: ""
         val integerValue = intent.getIntExtra("integerValue", 0)
@@ -81,42 +75,32 @@ class ManualTrackingActivity : AppCompatActivity() {
         int5.text = integerValue.toString()
 
 
+        var value1 = integerValue.toString().toIntOrNull() ?:0
+        var value2 = integerValue.toString().toIntOrNull() ?:0
+        var value3 = integerValue.toString().toIntOrNull() ?:0
+        var value4 = integerValue.toString().toIntOrNull() ?:0
+        var value5 = integerValue.toString().toIntOrNull() ?:0
         val addButton = findViewById<Button>(R.id.addScore)
         addButton.setOnClickListener{
             //add integers of player-scores to the textview
-            val et1 = i1.text.toString()
-            val et2 = i2.text.toString()
-            val et3 = i3.text.toString()
-            val et4 = i4.text.toString()
-            val et5 = i5.text.toString()
+            val et1 = i1.text.toString().toIntOrNull() ?:0
+            val et2 = i2.text.toString().toIntOrNull() ?:0
+            val et3 = i3.text.toString().toIntOrNull() ?:0
+            val et4 = i4.text.toString().toIntOrNull() ?:0
+            val et5 = i5.text.toString().toIntOrNull() ?:0
 
-            int1.text = int1.text.toString()+ " " + et1
-            int2.text = int2.text.toString()+ " " + et2
-            int3.text = int3.text.toString()+ " " + et3
-            int4.text = int4.text.toString()+ " " + et4
-            int5.text = int5.text.toString()+ " " + et5
+            value1 += et1
+            value2 += et2
+            value3 += et3
+            value4 += et4
+            value5 += et5
 
-            val scrollView1: HorizontalScrollView = findViewById(R.id.scrollview1)
-            val scrollView2: HorizontalScrollView = findViewById(R.id.scrollview2)
-            val scrollView3: HorizontalScrollView = findViewById(R.id.scrollview3)
-            val scrollView4: HorizontalScrollView = findViewById(R.id.scrollview4)
-            val scrollView5: HorizontalScrollView = findViewById(R.id.scrollview5)
+            int1.text = int1.text.toString()+ " " + value1
+            int2.text = int2.text.toString()+ " " + value2
+            int3.text = int3.text.toString()+ " " + value3
+            int4.text = int4.text.toString()+ " " + value4
+            int5.text = int5.text.toString()+ " " + value5
 
-            scrollView1.post {
-                scrollView1.fullScroll(ScrollView.FOCUS_RIGHT)
-            }
-            scrollView2.post {
-                scrollView2.fullScroll(ScrollView.FOCUS_RIGHT)
-            }
-            scrollView3.post {
-                scrollView3.fullScroll(ScrollView.FOCUS_RIGHT)
-            }
-            scrollView4.post {
-                scrollView4.fullScroll(ScrollView.FOCUS_RIGHT)
-            }
-            scrollView5.post {
-                scrollView5.fullScroll(ScrollView.FOCUS_RIGHT)
-            }
         }
 
         val tr1 = findViewById<TableRow>(R.id.TR1)
@@ -156,3 +140,4 @@ class ManualTrackingActivity : AppCompatActivity() {
 
     }
 }
+
