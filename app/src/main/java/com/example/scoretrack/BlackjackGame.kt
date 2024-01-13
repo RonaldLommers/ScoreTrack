@@ -2,6 +2,7 @@ package com.example.scoretrack
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -10,7 +11,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.gson.Gson
-import android.util.Log
 
 
 class BlackjackGame : AppCompatActivity() {
@@ -54,6 +54,7 @@ class BlackjackGame : AppCompatActivity() {
         setupResetBetButtonListener()
         setupNextPlayerButtonListener()
         setupStartGameButtonListener()
+        setupOutcomeButtons()
 
         processIncomingGameData()
         initializePlayerViews()
@@ -313,13 +314,17 @@ class BlackjackGame : AppCompatActivity() {
             val currentPlayer = players[currentPlayerIndex]
             updateDealerStake(currentPlayer.currentBet, outcome)
 
-            // Move to the next player
+            // Log for testing
+            Log.d("BlackjackGame", "Processing outcome: $outcome for player $currentPlayerIndex")
+
+            // Move to the next player or reset if at the end
             currentPlayerIndex++
             if (currentPlayerIndex >= playerCount) {
                 currentPlayerIndex = 0
-                // Optionally, you can add logic here for what happens when all players have had their turn
+                resetForNextRound()
+            } else {
+                startTurn(currentPlayerIndex)
             }
-            startTurn(currentPlayerIndex)
         }
     }
 
