@@ -42,7 +42,7 @@
         android:id="@+id/sluiten"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sluiten"
+        android:text="Sluiten" 
         tools:layout_editor_absoluteX="54dp"
         tools:layout_editor_absoluteY="205dp" />
 
