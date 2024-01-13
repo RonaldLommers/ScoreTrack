@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f2ebd0"
+    tools:context=".activity_spelomschrijving_comingsoon">
+
+
+    <TextView
+        android:id="@+id/titel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Coming Soon"
+        android:textSize="70px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="71dp" />
+    <TextView
+        android:id="@+id/omschrijvingcs"
+        android:layout_width="323dp"
+        android:layout_height="354dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:text="Wij zijn op dit moment nog bezig met het voorbereiden van een nieuw spel. Excuses voor het ongemak.  "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.518"
+        tools:layout_editor_absoluteX="44dp" />
+    <Button
+        android:id="@+id/bj_terug"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:background="#FFFFFF"
+        android:text="terug"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="49dp" />
+
+    <Button
+        android:id="@+id/sluiten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sluiten"
+        tools:layout_editor_absoluteX="54dp"
+        tools:layout_editor_absoluteY="205dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

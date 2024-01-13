@@ -1,13 +1,14 @@
 package com.example.scoretrack
 
-import android.content.Intent
-class activity_spelomschrijving_blackjack : AppCompatActivity() {
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+
+class activity_spelomschrijving_comingsoon : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_spelomschrijving_blackjack)
+        setContentView(R.layout.activity_spelomschrijving_comingsoon)
     }
 }
-
 
 
 
@@ -16,7 +17,6 @@ class activity_spelomschrijving_blackjack : AppCompatActivity() {
 val button = findViewById<ImageButton>(R.id.bj_terug)
 
 button.setOnClickListener {
-    val intent = Intent(this, activity_spelomschrijving_blackjack::class.java)
+    val intent = Intent(this, activity_spelomschrijving_comingsoon::class.java)
     startActivity(intent)
 }
-
