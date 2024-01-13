@@ -526,7 +526,7 @@
         android:visibility="gone"
         app:srcCompat="@drawable/ic_buttonwin"
         app:layout_constraintStart_toEndOf="@id/buttonBlackjack"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonBlackjack"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="16dp" />
 
     <ImageView
@@ -536,7 +536,7 @@
         android:visibility="gone"
         app:srcCompat="@drawable/ic_buttonbust"
         app:layout_constraintStart_toEndOf="@id/buttonWin"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonWin"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="16dp" />
 
     <ImageView
@@ -546,8 +546,9 @@
         android:visibility="gone"
         app:srcCompat="@drawable/ic_buttonx2"
         app:layout_constraintStart_toEndOf="@id/buttonBust"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonBust"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="16dp" />
+
 
 
 
