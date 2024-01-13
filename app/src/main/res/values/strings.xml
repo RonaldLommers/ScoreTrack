@@ -23,4 +23,6 @@
     <string name="start_game">start game</string>
     <string name="add">Add score</string>
     <string name="submit">submit</string>
+    <string name="Plus">+</string>
+    <string name="Minus">-</string>
 </resources>

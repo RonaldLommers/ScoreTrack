@@ -9,7 +9,7 @@
     tools:ignore="UseSwitchCompatOrMaterialXml">
 
     <Button
-        android:id="@+id/goback"
+        android:id="@+id/save"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:text="@string/back"
@@ -167,6 +167,12 @@
                 android:textSize="25sp"
                 android:text=""
                 android:textColor="#fff" />
+            <Button
+                android:id="@+id/btnPlus1"
+                android:layout_width="55dp"
+                android:layout_height="match_parent"
+                android:text="@string/Plus"
+                android:backgroundTint="@color/lighter_green"/>
         </TableRow>
 
         <TableRow android:id="@+id/ETR2">
@@ -184,6 +190,12 @@
                 android:textSize="25sp"
                 android:text=""
                 android:textColor="#fff" />
+            <Button
+                android:id="@+id/btnPlus2"
+                android:layout_width="55dp"
+                android:layout_height="match_parent"
+                android:text="@string/Plus"
+                android:backgroundTint="@color/lighter_green"/>
         </TableRow>
 
         <TableRow android:id="@+id/ETR3">
@@ -201,6 +213,12 @@
                 android:textSize="25sp"
                 android:text=""
                 android:textColor="#fff" />
+            <Button
+                android:id="@+id/btnPlus3"
+                android:layout_width="55dp"
+                android:layout_height="match_parent"
+                android:text="@string/Plus"
+                android:backgroundTint="@color/lighter_green"/>
         </TableRow>
 
         <TableRow android:id="@+id/ETR4">
@@ -218,6 +236,12 @@
                 android:textSize="25sp"
                 android:text=""
                 android:textColor="#fff" />
+            <Button
+                android:id="@+id/btnPlus4"
+                android:layout_width="55dp"
+                android:layout_height="match_parent"
+                android:text="@string/Plus"
+                android:backgroundTint="@color/lighter_green"/>
         </TableRow>
 
         <TableRow android:id="@+id/ETR5">
@@ -235,6 +259,12 @@
                 android:textSize="25sp"
                 android:text=""
                 android:textColor="#fff" />
+            <Button
+                android:id="@+id/btnPlus5"
+                android:layout_width="55dp"
+                android:layout_height="match_parent"
+                android:text="@string/Plus"
+                android:backgroundTint="@color/lighter_green"/>
         </TableRow>
     </TableLayout>
 

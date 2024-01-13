@@ -3,12 +3,11 @@
 package com.example.scoretrack
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.HorizontalScrollView
-import android.widget.ScrollView
 import android.widget.TableRow
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -46,7 +45,7 @@ class ManualTrackingActivity : AppCompatActivity() {
         val i4 = findViewById<EditText>(R.id.I4)
         val i5 = findViewById<EditText>(R.id.I5)
 
-        // Retrieve data from Intent extras
+        // Retrieve data from SetManualTracking
         val title = intent.getStringExtra("title") ?: ""
         val integerValue = intent.getIntExtra("integerValue", 0)
         val name1 = intent.getStringExtra("name1") ?: ""
@@ -54,9 +53,20 @@ class ManualTrackingActivity : AppCompatActivity() {
         val name3 = intent.getStringExtra("name3") ?: ""
         val name4 = intent.getStringExtra("name4") ?: ""
         val name5 = intent.getStringExtra("name5") ?: ""
-        // Retrieve data for other names as needed
 
-        // Update TextViews with the retrieved data
+        //find all table rows
+        val tr1 = findViewById<TableRow>(R.id.TR1)
+        val tr2 = findViewById<TableRow>(R.id.TR2)
+        val tr3 = findViewById<TableRow>(R.id.TR3)
+        val tr4 = findViewById<TableRow>(R.id.TR4)
+        val tr5 = findViewById<TableRow>(R.id.TR5)
+        val etr1 = findViewById<TableRow>(R.id.ETR1)
+        val etr2 = findViewById<TableRow>(R.id.ETR2)
+        val etr3 = findViewById<TableRow>(R.id.ETR3)
+        val etr4 = findViewById<TableRow>(R.id.ETR4)
+        val etr5 = findViewById<TableRow>(R.id.ETR5)
+
+        // set player names
         displayTitle.text = title
         displayName1.text = "$name1: "
         displayName2.text = "$name2: "
@@ -68,13 +78,59 @@ class ManualTrackingActivity : AppCompatActivity() {
         dn3.text = "$name3: "
         dn4.text = "$name4: "
         dn5.text = "$name5: "
+
+        //set starting value
         int1.text = integerValue.toString()
         int2.text = integerValue.toString()
         int3.text = integerValue.toString()
         int4.text = integerValue.toString()
         int5.text = integerValue.toString()
 
+        //get the +/- buttons from second table
+        val plus1 = findViewById<Button>(R.id.btnPlus1)
+        val plus2 = findViewById<Button>(R.id.btnPlus2)
+        val plus3 = findViewById<Button>(R.id.btnPlus3)
+        val plus4 = findViewById<Button>(R.id.btnPlus4)
+        val plus5 = findViewById<Button>(R.id.btnPlus5)
 
+        //switch the text of +/- button
+        plus1.setOnClickListener{
+            if (plus1.text == getString(R.string.Plus)){
+                plus1.text = getString(R.string.Minus)
+            }else{
+                plus1.text = getString(R.string.Plus)
+            }
+        }
+        plus2.setOnClickListener{
+            if (plus2.text == getString(R.string.Plus)){
+                plus2.text = getString(R.string.Minus)
+            }else{
+                plus2.text = getString(R.string.Plus)
+            }
+        }
+        plus3.setOnClickListener{
+            if (plus3.text == getString(R.string.Plus)){
+                plus3.text = getString(R.string.Minus)
+            }else{
+                plus3.text = getString(R.string.Plus)
+            }
+        }
+        plus4.setOnClickListener{
+            if (plus4.text == getString(R.string.Plus)){
+                plus4.text = getString(R.string.Minus)
+            }else{
+                plus4.text = getString(R.string.Plus)
+            }
+        }
+        plus5.setOnClickListener{
+            if (plus5.text == getString(R.string.Plus)){
+                plus5.text = getString(R.string.Minus)
+            }else{
+                plus5.text = getString(R.string.Plus)
+            }
+        }
+
+        //
         var value1 = integerValue.toString().toIntOrNull() ?:0
         var value2 = integerValue.toString().toIntOrNull() ?:0
         var value3 = integerValue.toString().toIntOrNull() ?:0
@@ -89,11 +145,32 @@ class ManualTrackingActivity : AppCompatActivity() {
             val et4 = i4.text.toString().toIntOrNull() ?:0
             val et5 = i5.text.toString().toIntOrNull() ?:0
 
-            value1 += et1
-            value2 += et2
-            value3 += et3
-            value4 += et4
-            value5 += et5
+            //check if player score increases or decreases
+            if (plus1.text == getString(R.string.Plus)) {
+                value1 += et1
+            }else{
+                value1 -= et1
+            }
+            if (plus2.text == getString(R.string.Plus)) {
+                value2 += et2
+            }else{
+                value2 -= et2
+            }
+            if (plus3.text == getString(R.string.Plus)) {
+                value3 += et3
+            }else{
+                value3 -= et3
+            }
+            if (plus4.text == getString(R.string.Plus)) {
+                value4 += et4
+            }else{
+                value4 -= et4
+            }
+            if (plus5.text == getString(R.string.Plus)) {
+                value5 += et5
+            }else{
+                value5 -= et5
+            }
 
             int1.text = int1.text.toString()+ " " + value1
             int2.text = int2.text.toString()+ " " + value2
@@ -102,17 +179,6 @@ class ManualTrackingActivity : AppCompatActivity() {
             int5.text = int5.text.toString()+ " " + value5
 
         }
-
-        val tr1 = findViewById<TableRow>(R.id.TR1)
-        val tr2 = findViewById<TableRow>(R.id.TR2)
-        val tr3 = findViewById<TableRow>(R.id.TR3)
-        val tr4 = findViewById<TableRow>(R.id.TR4)
-        val tr5 = findViewById<TableRow>(R.id.TR5)
-        val etr1 = findViewById<TableRow>(R.id.ETR1)
-        val etr2 = findViewById<TableRow>(R.id.ETR2)
-        val etr3 = findViewById<TableRow>(R.id.ETR3)
-        val etr4 = findViewById<TableRow>(R.id.ETR4)
-        val etr5 = findViewById<TableRow>(R.id.ETR5)
 
         //hide unfilled player names
         if (name1 == ""){
@@ -136,8 +202,12 @@ class ManualTrackingActivity : AppCompatActivity() {
             etr5.visibility = View.GONE
         }
 
-
-
+        //save players, scores and date then go to saves
+        //for now just go to saves
+        val btnSave = findViewById<Button>(R.id.save)
+        btnSave.setOnClickListener{
+            val intent = Intent(this, Saves::class.java)
+            startActivity(intent)
+        }
     }
 }
-
