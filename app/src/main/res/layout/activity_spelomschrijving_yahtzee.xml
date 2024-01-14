@@ -11,7 +11,7 @@
         android:id="@+id/titel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="BlackJack"
+        android:text="Yahtzee"
         android:textSize="70px"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,19 +23,19 @@
         android:layout_height="354dp"
         android:background="#FFFFFF"
         android:gravity="center"
-        android:text="Blackjack, ook bekend als 21, is een kaartspel waarbij spelers proberen een hand te krijgen met een waarde die zo dicht mogelijk bij 21 ligt, maar niet hoger."
+        android:text="The objective of Yahtzee is to score points by forming combinations with dice rolls. Each player gets three rolls per turn to achieve the desired combination. The player with the highest total points at the end of the game wins."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/bj_terug"
+        android:id="@+id/y_terug"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
-        android:text="Terug"
+        android:text="Back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -56,7 +56,7 @@
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <Button
-        android:id="@+id/spelregelsbj"
+        android:id="@+id/spelregelsy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Spelregels"
@@ -64,7 +64,7 @@
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <Button
-        android:id="@+id/bj_spelen"
+        android:id="@+id/y_spelen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Spelen"

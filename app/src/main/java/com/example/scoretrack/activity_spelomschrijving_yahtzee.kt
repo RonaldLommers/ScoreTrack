@@ -5,18 +5,18 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 
-class Activity_spelomschrijving_blackjack : AppCompatActivity() {
+class Activity_spelomschrijving_yahtzee : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_spelomschrijving_blackjack)
+        setContentView(R.layout.activity_spelomschrijving_yahtzee)
 
-        val button = findViewById<Button>(R.id.bj_terug)
+        val button = findViewById<Button>(R.id.y_terug)
         button.setOnClickListener {
             val doorsturen = Intent(this, spelkeuze::class.java)
             startActivity(doorsturen)
         }
 
-        val startButton = findViewById<Button>(R.id.bj_spelen)
+        val startButton = findViewById<Button>(R.id.y_spelen)
         startButton.setOnClickListener {
             val doorsturen = Intent(this, Blackjack::class.java)
             startActivity(doorsturen)
@@ -28,7 +28,7 @@ class Activity_spelomschrijving_blackjack : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val spelregels = findViewById<Button>(R.id.spelregelsbj)
+        val spelregels = findViewById<Button>(R.id.spelregelsy)
         spelregels.setOnClickListener {
             val intent = Intent(this, activity_spelregels_blackjack::class.java)
             startActivity(intent)

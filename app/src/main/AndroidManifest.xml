@@ -13,7 +13,10 @@
         android:theme="@style/Theme.ScoreTrack"
         tools:targetApi="31">
         <activity
-            android:name=".Yahtzee"
+            android:name=".activity_spelregels_yahtzee"
+            android:exported="false" />
+        <activity
+            android:name=".activity_spelomschrijving_yahtzee"
             android:exported="false" />
         <activity
             android:name=".activity_spelregels_poker"
@@ -47,7 +50,7 @@
         <activity
             android:name=".Blackjack"
             android:exported="false"
-            android:theme="@style/Theme.ScoreTrack" />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".Saves"
             android:exported="false" />

@@ -15,10 +15,10 @@ data class Save(
     val saves: Collection<SubSave>
 )
 
-var gamestate = object {}
+var gamestates = object {}
 
-fun newGame(gameType: String){
-    gamestate = object {}
+fun newGamestate(gameType: String){
+//    gamestates[gameType] = {}
 }
 fun storeValue(){
 
