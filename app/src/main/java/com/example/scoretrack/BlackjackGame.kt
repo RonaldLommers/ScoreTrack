@@ -232,7 +232,8 @@ class BlackjackGame : AppCompatActivity() {
         // Hide betting interface
         showBetView.visibility = View.GONE
         resetBetButton.visibility = View.GONE
-        nextPlayerButton.visibility = View.GONE  // Hide next button during the game
+        nextPlayerButton.visibility = View.GONE
+        startGameButton.visibility = View.GONE
 
         // Hide betting chips
         findViewById<ImageView>(R.id.chip5000).visibility = View.GONE
