@@ -22,12 +22,5 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, Saves::class.java)
             startActivity(intent)
         }
-
-        val settingsImageButton = findViewById<ImageButton>(R.id.settingsImageButton)
-        settingsImageButton.setOnClickListener {
-            val intent = Intent(this, Blackjack::class.java)
-            startActivity(intent)
-
-        }
         }
     }
