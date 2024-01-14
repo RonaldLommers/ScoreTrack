@@ -12,7 +12,7 @@ class spelkeuze : AppCompatActivity() {
 
         val blackjackButton = findViewById<ImageButton>(R.id.blackjack)
         blackjackButton.setOnClickListener {
-            val intent = Intent(this@spelkeuze, Activity_spelomschrijving_blackjack::class.java)
+            val intent = Intent(this@spelkeuze, activity_spelomschrijving_blackjack::class.java)
             startActivity(intent)
         }
 
@@ -24,7 +24,7 @@ class spelkeuze : AppCompatActivity() {
 
         val comingsoonButton = findViewById<ImageButton>(R.id.comingSoon)
         comingsoonButton.setOnClickListener {
-            val intent = Intent(this@spelkeuze, Activity_spelomschrijving_yahtzee::class.java)
+            val intent = Intent(this@spelkeuze, activity_spelomschrijving_yahtzee::class.java)
             startActivity(intent)
         }
 
