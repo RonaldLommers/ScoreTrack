@@ -5,9 +5,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@color/green">
+    android:background="@color/green"
+    tools:ignore="UseSwitchCompatOrMaterialXml">
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="@string/back"
+        android:backgroundTint="@color/lighter_green"
+        android:minWidth="64dp"
+        android:minHeight="48dp"/>
 
     <TableLayout
+        android:id="@+id/TL_score"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp">
@@ -15,85 +26,254 @@
             <TextView
                 android:id="@+id/displayTitle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
+                android:textSize="30sp"
                 android:text=""
                 android:textColor="#fff"/>
         </TableRow>
 
-        <TableRow>
+        <TableRow
+            android:id="@+id/TR1"
+            android:orientation="horizontal">
             <TextView
                 android:id="@+id/displayName1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
+                android:textSize="30sp"
                 android:text=""
                 android:textColor="#fff"/>
-            <TextView
-                android:id="@+id/displayInteger1"
-                android:layout_width="match_parent"
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
-                android:textColor="#fff" />
+                android:id="@+id/scrollview1">
+                <TextView
+                    android:id="@+id/displayInteger1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:textSize="30sp"
+                    android:text=""
+                    android:textColor="#fff" />
+            </HorizontalScrollView>
+
         </TableRow>
 
-        <TableRow>
+        <TableRow android:id="@+id/TR2">
             <TextView
                 android:id="@+id/displayName2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
+                android:textSize="30sp"
                 android:text=""
                 android:textColor="#fff"/>
-            <TextView
-                android:id="@+id/displayInteger2"
-                android:layout_width="match_parent"
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
-                android:textColor="#fff" />
+                android:id="@+id/scrollview2">
+                <TextView
+                    android:id="@+id/displayInteger2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:textSize="30sp"
+                    android:text=""
+                    android:textColor="#fff" />
+            </HorizontalScrollView>
         </TableRow>
 
-        <TableRow>
+        <TableRow android:id="@+id/TR3">
             <TextView
                 android:id="@+id/displayName3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
+                android:textSize="30sp"
                 android:text=""
                 android:textColor="#fff"/>
-            <TextView
-                android:id="@+id/displayInteger3"
-                android:layout_width="match_parent"
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
-                android:textColor="#fff" />
+                android:id="@+id/scrollview3">
+                <TextView
+                    android:id="@+id/displayInteger3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:textSize="30sp"
+                    android:text=""
+                    android:textColor="#fff" />
+            </HorizontalScrollView>
         </TableRow>
 
-        <TableRow>
+        <TableRow android:id="@+id/TR4">
             <TextView
                 android:id="@+id/displayName4"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
+                android:textSize="30sp"
                 android:text=""
                 android:textColor="#fff"/>
-            <TextView
-                android:id="@+id/displayInteger4"
-                android:layout_width="match_parent"
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
-                android:textColor="#fff" />
+                android:id="@+id/scrollview4">
+                <TextView
+                    android:id="@+id/displayInteger4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:textSize="30sp"
+                    android:text=""
+                    android:textColor="#fff" />
+            </HorizontalScrollView>
         </TableRow>
 
-        <TableRow>
+        <TableRow android:id="@+id/TR5">
             <TextView
                 android:id="@+id/displayName5"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
+                android:textSize="30sp"
                 android:text=""
                 android:textColor="#fff"/>
-            <TextView
-                android:id="@+id/displayInteger5"
-                android:layout_width="match_parent"
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
-                android:textColor="#fff" />
+                android:id="@+id/scrollview5">
+                <TextView
+                    android:id="@+id/displayInteger5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:textSize="30sp"
+                    android:text=""
+                    android:textColor="#fff"/>
+            </HorizontalScrollView>
         </TableRow>
     </TableLayout>
 
+    <TableLayout
+        android:id="@+id/TL_addScore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TableRow android:id="@+id/ETR1">
+            <TextView
+                android:id="@+id/DN1"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:textSize="30sp"
+                android:text=""
+                android:textColor="#fff"/>
+            <EditText
+                android:id="@+id/I1"
+                android:layout_width="100dp"
+                android:layout_height="48dp"
+                android:textSize="25sp"
+                android:text=""
+                android:textColor="#fff" />
+            <Button
+                android:id="@+id/btnPlus1"
+                android:layout_width="55dp"
+                android:layout_height="match_parent"
+                android:text="@string/Plus"
+                android:backgroundTint="@color/lighter_green"/>
+        </TableRow>
+
+        <TableRow android:id="@+id/ETR2">
+            <TextView
+                android:id="@+id/DN2"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:textSize="30sp"
+                android:text=""
+                android:textColor="#fff"/>
+            <EditText
+                android:id="@+id/I2"
+                android:layout_width="100dp"
+                android:layout_height="48dp"
+                android:textSize="25sp"
+                android:text=""
+                android:textColor="#fff" />
+            <Button
+                android:id="@+id/btnPlus2"
+                android:layout_width="55dp"
+                android:layout_height="match_parent"
+                android:text="@string/Plus"
+                android:backgroundTint="@color/lighter_green"/>
+        </TableRow>
+
+        <TableRow android:id="@+id/ETR3">
+            <TextView
+                android:id="@+id/DN3"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:textSize="30sp"
+                android:text=""
+                android:textColor="#fff"/>
+            <EditText
+                android:id="@+id/I3"
+                android:layout_width="100dp"
+                android:layout_height="48dp"
+                android:textSize="25sp"
+                android:text=""
+                android:textColor="#fff" />
+            <Button
+                android:id="@+id/btnPlus3"
+                android:layout_width="55dp"
+                android:layout_height="match_parent"
+                android:text="@string/Plus"
+                android:backgroundTint="@color/lighter_green"/>
+        </TableRow>
+
+        <TableRow android:id="@+id/ETR4">
+            <TextView
+                android:id="@+id/DN4"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:textSize="30sp"
+                android:text=""
+                android:textColor="#fff"/>
+            <EditText
+                android:id="@+id/I4"
+                android:layout_width="100dp"
+                android:layout_height="48dp"
+                android:textSize="25sp"
+                android:text=""
+                android:textColor="#fff" />
+            <Button
+                android:id="@+id/btnPlus4"
+                android:layout_width="55dp"
+                android:layout_height="match_parent"
+                android:text="@string/Plus"
+                android:backgroundTint="@color/lighter_green"/>
+        </TableRow>
+
+        <TableRow android:id="@+id/ETR5">
+            <TextView
+                android:id="@+id/DN5"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:textSize="30sp"
+                android:text=""
+                android:textColor="#fff"/>
+            <EditText
+                android:id="@+id/I5"
+                android:layout_width="100dp"
+                android:layout_height="48dp"
+                android:textSize="25sp"
+                android:text=""
+                android:textColor="#fff" />
+            <Button
+                android:id="@+id/btnPlus5"
+                android:layout_width="55dp"
+                android:layout_height="match_parent"
+                android:text="@string/Plus"
+                android:backgroundTint="@color/lighter_green"/>
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/addScore"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="@string/add"
+        android:backgroundTint="@color/lighter_green"
+        android:minWidth="64dp"
+        android:minHeight="48dp"/>
 </LinearLayout>
