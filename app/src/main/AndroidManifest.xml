@@ -41,7 +41,7 @@
         <activity
             android:name=".Blackjack"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:theme="@style/Theme.ScoreTrack" />
         <activity
             android:name=".Saves"
             android:exported="false" />
