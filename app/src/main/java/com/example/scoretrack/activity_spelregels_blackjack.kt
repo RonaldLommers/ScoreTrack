@@ -14,7 +14,7 @@ class activity_spelregels_blackjack : AppCompatActivity() {
         val button_bjterug = findViewById<Button>(R.id.bjsr_terug)
 
         button_bjterug.setOnClickListener {
-            val bjterug = Intent(this, activity_spelomschrijving_blackjack::class.java)
+            val bjterug = Intent(this, Activity_spelomschrijving_blackjack::class.java)
             startActivity(bjterug)
         }
     }
