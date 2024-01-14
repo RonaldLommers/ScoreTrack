@@ -43,10 +43,8 @@
             android:name=".Saves"
             android:exported="false" />
         <activity
-            android:name=".Play"
-            android:exported="false" /> <!-- <activity -->
-        <!-- android:name=".M" -->
-        <!-- android:exported="false" /> -->
+            android:name=".spelkeuze"
+            android:exported="false" />
         <activity
             android:name=".splash"
             android:exported="true"

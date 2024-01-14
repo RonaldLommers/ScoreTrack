@@ -11,9 +11,14 @@ class activity_spelomschrijving_comingsoon : AppCompatActivity() {
         setContentView(R.layout.activity_spelomschrijving_comingsoon)
 
         val button = findViewById<Button>(R.id.bj_terug)
-
         button.setOnClickListener {
-            val intent = Intent(this, activity_spelomschrijving_comingsoon::class.java)
+            val intent = Intent(this, spelkeuze::class.java)
+            startActivity(intent)
+        }
+
+        val closeButton = findViewById<Button>(R.id.sluiten)
+        closeButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }

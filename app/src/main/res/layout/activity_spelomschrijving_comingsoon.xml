@@ -32,10 +32,8 @@
         android:id="@+id/bj_terug"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:background="#FFFFFF"
+        android:layout_marginStart="4dp"
         android:text="terug"
-        android:textColor="#757575"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/omschrijvingcs" />
 
@@ -44,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sluiten"
-        app:layout_constraintTop_toBottomOf="@id/bj_terug"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/omschrijvingcs" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

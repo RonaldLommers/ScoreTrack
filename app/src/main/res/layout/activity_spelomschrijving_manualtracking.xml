@@ -32,34 +32,24 @@
         android:id="@+id/bj_terug"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF"
         android:text="terug"
-        android:textColor="#757575"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/omschrijvingmt" />
+        app:layout_constraintTop_toBottomOf="@id/omschrijvingmt"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/sluiten"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sluiten"
-        app:layout_constraintTop_toBottomOf="@id/bj_terug"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/empty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="empty"
-        app:layout_constraintTop_toBottomOf="@id/sluiten"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/omschrijvingmt"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/spelregelsbj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Spelregels"
-        app:layout_constraintTop_toBottomOf="@id/empty"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -67,7 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Spelen"
-        app:layout_constraintTop_toBottomOf="@id/spelregelsbj"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,14 +12,25 @@ class spelkeuze : AppCompatActivity() {
 
         val blackjackButton = findViewById<ImageButton>(R.id.blackjack)
         blackjackButton.setOnClickListener {
-            val intent = Intent(this@spelkeuze, Blackjack::class.java)
+            val intent = Intent(this@spelkeuze, activity_spelomschrijving_blackjack::class.java)
             startActivity(intent)
         }
 
+        val pokerButton = findViewById<ImageButton>(R.id.poker)
+        pokerButton.setOnClickListener {
+            val intent = Intent(this@spelkeuze, activity_spelomschrijving_poker::class.java)
+            startActivity(intent)
+        }
+
+        val comingsoonButton = findViewById<ImageButton>(R.id.comingSoon)
+        comingsoonButton.setOnClickListener {
+            val intent = Intent(this@spelkeuze, activity_spelomschrijving_comingsoon::class.java)
+            startActivity(intent)
+        }
 
         val manualTrackingButton = findViewById<ImageButton>(R.id.manualTracking)
         manualTrackingButton.setOnClickListener {
-            val intent = Intent(this@spelkeuze,SetManualTrackingActivity::class.java)
+            val intent = Intent(this@spelkeuze,activity_spelomschrijving_manualtracking::class.java)
             startActivity(intent)
         }
     }

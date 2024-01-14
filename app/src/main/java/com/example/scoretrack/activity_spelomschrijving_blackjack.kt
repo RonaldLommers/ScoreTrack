@@ -12,8 +12,20 @@ class activity_spelomschrijving_blackjack : AppCompatActivity() {
 
         val button = findViewById<Button>(R.id.bj_terug)
         button.setOnClickListener {
-            val doorsturen = Intent(this, activity_spelomschrijving_blackjack::class.java)
+            val doorsturen = Intent(this, spelkeuze::class.java)
             startActivity(doorsturen)
+        }
+
+        val startButton = findViewById<Button>(R.id.bj_spelen)
+        startButton.setOnClickListener {
+            val doorsturen = Intent(this, Blackjack::class.java)
+            startActivity(doorsturen)
+        }
+
+        val closeButton = findViewById<Button>(R.id.sluiten)
+        closeButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
     }
 }

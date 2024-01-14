@@ -32,43 +32,32 @@
         android:id="@+id/bj_terug"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF"
         android:text="terug"
-        android:textColor="#000000"
-        app:layout_constraintTop_toBottomOf="@id/omschrijvingbj"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/omschrijvingbj" />
 
     <Button
         android:id="@+id/sluiten"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sluiten"
-        app:layout_constraintTop_toBottomOf="@id/bj_terug"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/empty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" "
-        android:contentDescription="Empty Button"
-        app:layout_constraintTop_toBottomOf="@id/sluiten"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/omschrijvingbj" />
 
     <Button
         android:id="@+id/spelregelsbj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Spelregels"
-        app:layout_constraintTop_toBottomOf="@id/empty"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <Button
         android:id="@+id/bj_spelen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Spelen"
-        app:layout_constraintTop_toBottomOf="@id/spelregelsbj"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,9 @@
 package com.example.scoretrack
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 
 class activity_spelomschrijving_manualtracking : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -11,9 +11,20 @@ class activity_spelomschrijving_manualtracking : AppCompatActivity() {
         setContentView(R.layout.activity_spelomschrijving_manualtracking)
 
         val button = findViewById<Button>(R.id.bj_terug)
-
         button.setOnClickListener {
-            val intent = Intent(this, activity_spelomschrijving_manualtracking::class.java)
+            val intent = Intent(this, spelkeuze::class.java)
+            startActivity(intent)
+        }
+
+        val startButton = findViewById<Button>(R.id.bj_spelen)
+        startButton.setOnClickListener {
+            val intent = Intent(this, SetManualTrackingActivity::class.java)
+            startActivity(intent)
+        }
+
+        val closeButton = findViewById<Button>(R.id.sluiten)
+        closeButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }
