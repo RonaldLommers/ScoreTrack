@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
-        android:text="Terug"
+        android:text="Back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,16 +24,16 @@
         android:layout_height="354dp"
         android:background="#FFFFFF"
         android:gravity="center"
-        android:text="Poker:
-Doel van het spel:\n
-Verzamel de beste combinatie van vijf kaarten om te winnen.\n\n
-Kaartwaarden:\n
-Hoog naar laag: Aas, Koning, Vrouw, Boer, 10 tot 2.\n\n
-Spelverloop:\n
-Spelers ontvangen twee gesloten kaarten (hole cards).
-Er volgen inzetrondes na het delen van gemeenschappelijke kaarten (flop, turn, river).\n\n
-Spelers kunnen inzetten, passen, verhogen of zich terugtrekken.
-De speler met de beste hand wint de pot."
+        android:text="Poker:\n
+Objective of the game:\n
+Collect the best combination of five cards to win.\n\n
+Card values:\n
+High to low: Ace, King, Queen, Jack, 10 to 2.\n\n
+Gameplay:\n
+Players receive two hole cards(closed).
+Betting rounds follow after dealing community cards (flop, turn, river).\n\n
+Players can bet, fold, raise or withdraw.
+The player with the best hand wins the pot."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
