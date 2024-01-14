@@ -12,7 +12,7 @@ class activity_spelregels_poker : AppCompatActivity() {
 
         val button = findViewById<Button>(R.id.posr_terug)
         button.setOnClickListener {
-            val terugg = Intent(this, spelkeuze::class.java)
+            val terugg = Intent(this, activity_spelomschrijving_poker::class.java)
             startActivity(terugg)
         }
     }
