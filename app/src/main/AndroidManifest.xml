@@ -16,6 +16,12 @@
             android:name=".Yahtzee"
             android:exported="false" />
         <activity
+            android:name=".activity_spelregels_poker"
+            android:exported="false" />
+        <activity
+            android:name=".activity_spelregels_blackjack"
+            android:exported="false" />
+        <activity
             android:name=".activity_spelomschrijving_comingsoon"
             android:exported="false" />
         <activity

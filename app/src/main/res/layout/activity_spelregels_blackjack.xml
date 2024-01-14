@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#f2ebd0"
+    android:layout_height="match_parent"
+    tools:context=".activity_spelregels_blackjack">
+
+
+    <Button
+        android:id="@+id/bjsr_terug"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:text="Terug"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/spelregelsbj"
+        android:layout_width="323dp"
+        android:layout_height="354dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:text="Doel van het spel:\n
+Behaal een handwaarde dichter bij 21 dan de dealer, zonder 21 te overschrijden.\n\n
+Kaartwaarden:\n
+Kaarten 2-10 hebben hun nominale waarde, gezichtskaarten zijn 10 punten, Aas is 1 of 11 punten.\n\n
+Spelverloop:\n
+Spelers krijgen twee kaarten en proberen hun hand te verbeteren door kaarten te trekken.
+Je kunt passen, kaarten kopen (hit), verdubbelen of splitsen.\n\n
+Dealer volgt specifieke regels voor het trekken van kaarten.
+Als je meer dan 21 punten hebt, verlies je direct.
+"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
