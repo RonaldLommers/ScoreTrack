@@ -13,9 +13,6 @@
         android:theme="@style/Theme.ScoreTrack"
         tools:targetApi="31">
         <activity
-            android:name=".activity_poker"
-            android:exported="false" />
-        <activity
             android:name=".activity_spelomschrijving_comingsoon"
             android:exported="false" />
         <activity
@@ -26,6 +23,8 @@
             android:exported="false" />
         <activity
             android:name=".activity_spelomschrijving_blackjack"
+            android:exported="false" />
+        <activity
             android:name=".BlackjackGame"
             android:exported="false" />
         <activity
@@ -61,9 +60,6 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity
-            android:name=".welcome"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
     </application>
 

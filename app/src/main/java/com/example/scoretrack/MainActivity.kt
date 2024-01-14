@@ -1,14 +1,9 @@
 package com.example.scoretrack
 
 import android.content.Intent
-import android.database.Cursor
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
 import android.widget.ImageButton
-import android.widget.Toast
-import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 
 
 class MainActivity : AppCompatActivity() {
@@ -18,7 +13,7 @@ class MainActivity : AppCompatActivity() {
 
         val playImageButton = findViewById<ImageButton>(R.id.playImageButton)
         playImageButton.setOnClickListener {
-            val intent = Intent(this, SetManualTrackingActivity::class.java)
+            val intent = Intent(this, spelkeuze::class.java)
             startActivity(intent)
         }
 
