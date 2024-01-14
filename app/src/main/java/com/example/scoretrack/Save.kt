@@ -3,18 +3,31 @@ package com.example.scoretrack
 import java.sql.Array
 import java.sql.Time
 import java.sql.Date
+import java.util.Objects
 
 data class SubSave(
-    val datumHervat: Date,
-    val datumOpgeslagen: Date,
-    val gamestate: Array
+    val datumHervat: String,
+    val datumOpgeslagen: String,
+    val gamestate: Any,
 )
 
 data class Save(
     val id: Int,
     val opmerking: String,
-    val speltype: String,
-    val startdatum: Date,
-    val spelers: Array,
-    val saves: Array
+    var speltype: String,
+    val startdatum: String,
+    val spelers: Collection<String>,
+    val saves: Collection<SubSave>
 )
+
+var gamestates = object {}
+
+fun newGamestate(gameType: String){
+//    gamestates[gameType] = {}
+}
+fun storeValue(){
+
+}
+fun getValue(){
+
+}
