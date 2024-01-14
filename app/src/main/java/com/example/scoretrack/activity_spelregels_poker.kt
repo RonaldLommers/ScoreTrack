@@ -12,8 +12,8 @@ class activity_spelregels_poker : AppCompatActivity() {
 
         val button = findViewById<Button>(R.id.posr_terug)
         button.setOnClickListener {
-            val doorsturen = Intent(this, spelkeuze::class.java)
-            startActivity(doorsturen)
+            val terugg = Intent(this, spelkeuze::class.java)
+            startActivity(terugg)
         }
     }
 }

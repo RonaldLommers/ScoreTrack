@@ -14,29 +14,45 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
-        android:text="Terug"
+        android:text="Back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/spelregelsbj"
-        android:layout_width="323dp"
-        android:layout_height="354dp"
+        android:layout_width="319dp"
+        android:layout_height="619dp"
         android:background="#FFFFFF"
         android:gravity="center"
-        android:text="Doel van het spel:\n
-Behaal een handwaarde dichter bij 21 dan de dealer, zonder 21 te overschrijden.\n\n
-Kaartwaarden:\n
-Kaarten 2-10 hebben hun nominale waarde, gezichtskaarten zijn 10 punten, Aas is 1 of 11 punten.\n\n
-Spelverloop:\n
-Spelers krijgen twee kaarten en proberen hun hand te verbeteren door kaarten te trekken.
-Je kunt passen, kaarten kopen (hit), verdubbelen of splitsen.\n\n
-Dealer volgt specifieke regels voor het trekken van kaarten.
-Als je meer dan 21 punten hebt, verlies je direct.
+        android:text="Objective:\nGet a hand value closer to 21 than the dealer without going over.\n\n
+Card Values:\n
+Numbered cards: Face value\n
+Face cards (Jack, Queen, King): 10 points each\n
+Aces: 1 or 11 points\n\n
+Gameplay:\n
+1.	Receive two cards.\n
+2.	Improve your hand by drawing cards (hit). .\n
+3. Options: .\n.\n
+Stand: Keep current hand. .\n
+Hit: Draw an extra card. .\n
+Double Down: Double the bet, get one more card, and stand. .\n
+Split: If first two cards are equal, split into two hands. .\n.\n
+Dealer Rules: .\n
+Draw until 17 or higher, then stand. .\n.\n
+Bust: .\n
+Exceeding 21 points results in a loss. .\n.\n
+Winning: .\n
+Closer to 21 than the dealer without going over. .\n
+Player wins if dealer busts. .\n.\n
+Blackjack: .\n
+Ace and a 10-point card. .\n
+Often wins extra unless the dealer also has Blackjack. .\n
+
 "
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintVertical_bias="0.498" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
