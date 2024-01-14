@@ -130,7 +130,6 @@ class Blackjack : AppCompatActivity() {
         val row = playerView.parent as LinearLayout
         row.removeView(playerView)
         playerCount--
-        Toast.makeText(this, "Player Removed", Toast.LENGTH_SHORT).show()
     }
 
     private fun isPlayerInfoComplete(): Boolean {
@@ -158,7 +157,7 @@ class Blackjack : AppCompatActivity() {
 
     private fun serializeGameData(): String {
         val players = mutableListOf<PlayerData>()
-        var currentPlayerNumber = 1 // Start from player number 1
+        var currentPlayerNumber = 1
 
         for (i in 0 until playersLayout.childCount) {
             val row = playersLayout.getChildAt(i) as LinearLayout
@@ -170,7 +169,7 @@ class Blackjack : AppCompatActivity() {
                 val playerStake = playerStakeString.toIntOrNull() ?: 0 // Convert to Int
 
                 players.add(PlayerData(playerNumber, playerName, playerStake))
-                currentPlayerNumber++ // Increment for the next player
+                currentPlayerNumber++
             }
         }
 
@@ -197,7 +196,6 @@ class Blackjack : AppCompatActivity() {
         if (jsonData.isNotEmpty()) {
             val gameData = Gson().fromJson(jsonData, GameData::class.java)
             gameNameEditText.setText(gameData.gameName)
-            // TODO: Add logic to restore each player's data to the UI
         }
     }
 }

@@ -227,64 +227,58 @@ class BlackjackGame : AppCompatActivity() {
     }
 
     private fun startGame() {
-        // Hide betting interface
         showBetView.visibility = View.GONE
         resetBetButton.visibility = View.GONE
         nextPlayerButton.visibility = View.GONE
         startGameButton.visibility = View.GONE
 
-        // Hide betting chips
         findViewById<ImageView>(R.id.chip5000).visibility = View.GONE
         findViewById<ImageView>(R.id.chip1000).visibility = View.GONE
         findViewById<ImageView>(R.id.chip500).visibility = View.GONE
         findViewById<ImageView>(R.id.chip200).visibility = View.GONE
         findViewById<ImageView>(R.id.chip100).visibility = View.GONE
 
-        // Show outcome buttons for game actions
         buttonBlackjack.visibility = View.VISIBLE
         buttonWin.visibility = View.VISIBLE
         buttonBust.visibility = View.VISIBLE
         buttonX2.visibility = View.VISIBLE
 
-        // Initialize game state
-        // Example: Set currentPlayerIndex to 0 to start with the first player
+
         currentPlayerIndex = 0
         startTurn(currentPlayerIndex)
-        // Additional game initialization logic here
+
     }
 
 
     private fun resetForNextRound() {
-        // Reset each player's bet to zero for the new round
+
         players.forEach { player ->
             player.currentBet = 0
         }
 
-        // Update the UI to reflect the reset bets
+
         updatePlayerBetsUI()
 
-        // Hide the outcome buttons as they are only needed during game play
+
         buttonBlackjack.visibility = View.GONE
         buttonWin.visibility = View.GONE
         buttonBust.visibility = View.GONE
         buttonX2.visibility = View.GONE
 
-        // Show the betting chips for the new round
         findViewById<ImageView>(R.id.chip5000).visibility = View.VISIBLE
         findViewById<ImageView>(R.id.chip1000).visibility = View.VISIBLE
         findViewById<ImageView>(R.id.chip500).visibility = View.VISIBLE
         findViewById<ImageView>(R.id.chip200).visibility = View.VISIBLE
         findViewById<ImageView>(R.id.chip100).visibility = View.VISIBLE
 
-        // Make the betting interface visible again
         showBetView.visibility = View.VISIBLE
         resetBetButton.visibility = View.VISIBLE
         nextPlayerButton.visibility = View.VISIBLE
 
-        // Hide the start game button as it's only needed at the beginning
+
         startGameButton.visibility = View.GONE
 
-        // Reset the currentPlayerIndex to 0 to start the new round with the first player
+
         currentPlayerIndex = 0
         startTurn(currentPlayerIndex)
 
@@ -295,12 +289,11 @@ class BlackjackGame : AppCompatActivity() {
     private fun moveToNextPlayer() {
         currentPlayerIndex++
         if (currentPlayerIndex >= playerCount) {
-            // If all players have taken their turn, show the "Start" button for the game
+
             currentPlayerIndex = 0
             nextPlayerButton.visibility = View.GONE
             startGameButton.visibility = View.VISIBLE
         } else {
-            // Otherwise, continue with the next player's turn
             startTurn(currentPlayerIndex)
         }
     }
@@ -326,9 +319,9 @@ class BlackjackGame : AppCompatActivity() {
 
     private fun updatePlayerStake(player: PlayerData, outcome: String) {
         when (outcome) {
-            "Win" -> player.currentStake += player.currentBet // Player wins the bet amount
-            "Blackjack" -> player.currentStake += (player.currentBet * 1.5).toInt() // Blackjack pays 1.5 times
-            "Bust" -> player.currentStake -= player.currentBet // Player loses the bet amount
+            "Win" -> player.currentStake += player.currentBet
+            "Blackjack" -> player.currentStake += (player.currentBet * 1.5).toInt()
+            "Bust" -> player.currentStake -= player.currentBet
             "X2" -> player.currentStake += player.currentBet * 2
         }
         updatePlayerStakesUI()
@@ -340,10 +333,6 @@ class BlackjackGame : AppCompatActivity() {
             updateDealerStake(currentPlayer.currentBet, outcome)
             updatePlayerStake(currentPlayer, outcome)
 
-            // Log for testing
-            Log.d("BlackjackGame", "Processing outcome: $outcome for player $currentPlayerIndex")
-
-            // Move to the next player or reset if at the end
             currentPlayerIndex++
             if (currentPlayerIndex >= playerCount) {
                 currentPlayerIndex = 0
