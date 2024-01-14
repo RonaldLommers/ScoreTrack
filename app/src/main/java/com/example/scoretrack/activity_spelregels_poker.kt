@@ -11,9 +11,8 @@ class activity_spelregels_poker : AppCompatActivity() {
         setContentView(R.layout.activity_spelregels_poker)
 
         val button = findViewById<Button>(R.id.posr_terug)
-
         button.setOnClickListener {
-            val doorsturen = Intent(this, activity_spelregels_poker::class.java)
+            val doorsturen = Intent(this, spelkeuze::class.java)
             startActivity(doorsturen)
         }
     }
