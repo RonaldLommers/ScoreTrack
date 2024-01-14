@@ -23,7 +23,7 @@
         android:layout_height="354dp"
         android:background="#FFFFFF"
         android:gravity="center"
-        android:text="Wij zijn op dit moment nog bezig met het voorbereiden van een nieuw spel. Excuses voor het ongemak."
+        android:text="We are currently still preparing a new game. Sorry for the inconvenience."
         app:layout_constraintTop_toBottomOf="@id/titel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:text="terug"
+        android:text="Back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/omschrijvingcs" />
 
@@ -41,7 +41,7 @@
         android:id="@+id/sluiten"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sluiten"
+        android:text="Close"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/omschrijvingcs" />
 

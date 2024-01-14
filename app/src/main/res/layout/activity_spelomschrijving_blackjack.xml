@@ -23,7 +23,7 @@
         android:layout_height="354dp"
         android:background="#FFFFFF"
         android:gravity="center"
-        android:text="Blackjack, ook bekend als 21, is een kaartspel waarbij spelers proberen een hand te krijgen met een waarde die zo dicht mogelijk bij 21 ligt, maar niet hoger."
+        android:text="Blackjack, also known as 21, is a card game where players try to get a hand with a value as close to 21 as possible, but not higher."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
-        android:text="Terug"
+        android:text="Back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,7 +43,7 @@
         android:id="@+id/sluiten"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sluiten"
+        android:text="Close"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -59,7 +59,7 @@
         android:id="@+id/spelregelsbj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Spelregels"
+        android:text="Rules"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
@@ -67,7 +67,7 @@
         android:id="@+id/bj_spelen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Spelen"
+        android:text="Play"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 

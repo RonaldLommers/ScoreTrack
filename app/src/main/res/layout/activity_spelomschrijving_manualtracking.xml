@@ -23,7 +23,7 @@
         android:layout_height="354dp"
         android:background="#FFFFFF"
         android:gravity="center"
-        android:text="Houdt je score handmatig bij"
+        android:text="Keep track of your score manually"
         app:layout_constraintTop_toBottomOf="@id/titel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -32,7 +32,7 @@
         android:id="@+id/bj_terug"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="terug"
+        android:text="Back"
         app:layout_constraintTop_toBottomOf="@id/omschrijvingmt"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -40,7 +40,7 @@
         android:id="@+id/sluiten"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sluiten"
+        android:text="Close"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -48,7 +48,7 @@
         android:id="@+id/bj_spelen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Spelen"
+        android:text="Play"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
