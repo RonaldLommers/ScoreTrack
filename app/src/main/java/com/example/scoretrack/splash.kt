@@ -19,7 +19,7 @@ class splash : AppCompatActivity() {
         videoView.start()
 
         videoView.setOnCompletionListener {
-            val intent = Intent(this, Saves::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
