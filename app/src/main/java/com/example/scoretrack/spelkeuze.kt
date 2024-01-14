@@ -22,7 +22,7 @@ class spelkeuze : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val comingsoonButton = findViewById<ImageButton>(R.id.comingSoon)
+        val comingsoonButton = findViewById<ImageButton>(R.id.yahtzee)
         comingsoonButton.setOnClickListener {
             val intent = Intent(this@spelkeuze, Activity_spelomschrijving_yahtzee::class.java)
             startActivity(intent)

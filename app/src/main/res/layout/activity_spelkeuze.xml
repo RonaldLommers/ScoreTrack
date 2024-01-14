@@ -50,7 +50,7 @@
         app:srcCompat="@drawable/ic_manualtrackinglogo" />
 
     <ImageButton
-        android:id="@+id/comingSoon"
+        android:id="@+id/yahtzee"
         android:layout_width="270dp"
         android:layout_height="225dp"
         android:layout_alignParentEnd="true"
@@ -60,6 +60,6 @@
         android:background="@null"
         android:contentDescription="Coming Soon"
         android:scaleType="centerInside"
-        app:srcCompat="@drawable/ic_yahtzeee" />
+        app:srcCompat="@drawable/ic_yahtzeee"/>
 
 </RelativeLayout>
