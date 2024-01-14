@@ -325,10 +325,21 @@ class BlackjackGame : AppCompatActivity() {
         }
     }
 
+    private fun updatePlayerStake(player: PlayerData, outcome: String) {
+        when (outcome) {
+            "Win" -> player.currentStake += player.currentBet // Player wins the bet amount
+            "Blackjack" -> player.currentStake += (player.currentBet * 1.5).toInt() // Blackjack pays 1.5 times
+            "Bust" -> player.currentStake -= player.currentBet // Player loses the bet amount
+            "X2" -> player.currentStake += player.currentBet * 2
+        }
+        updatePlayerStakesUI()
+    }
+
     private fun processOutcome(outcome: String) {
         if (currentPlayerIndex in players.indices) {
             val currentPlayer = players[currentPlayerIndex]
             updateDealerStake(currentPlayer.currentBet, outcome)
+            updatePlayerStake(currentPlayer, outcome)
 
             // Log for testing
             Log.d("BlackjackGame", "Processing outcome: $outcome for player $currentPlayerIndex")
