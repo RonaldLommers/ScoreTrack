@@ -33,8 +33,7 @@ Spelverloop:\n
 Spelers ontvangen twee gesloten kaarten (hole cards).
 Er volgen inzetrondes na het delen van gemeenschappelijke kaarten (flop, turn, river).\n\n
 Spelers kunnen inzetten, passen, verhogen of zich terugtrekken.
-De speler met de beste hand wint de pot.
-"
+De speler met de beste hand wint de pot."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

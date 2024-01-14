@@ -30,7 +30,7 @@ class activity_spelomschrijving_blackjack : AppCompatActivity() {
 
         val spelregels = findViewById<Button>(R.id.spelregelsbj)
         spelregels.setOnClickListener {
-            val intent = Intent(this, activity_spelomschrijving_blackjack::class.java)
+            val intent = Intent(this, activity_spelregels_blackjack::class.java)
             startActivity(intent)
         }
     }

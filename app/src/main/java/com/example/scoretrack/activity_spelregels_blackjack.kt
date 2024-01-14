@@ -11,11 +11,11 @@ class activity_spelregels_blackjack : AppCompatActivity() {
         setContentView(R.layout.activity_spelregels_blackjack)
 
 
-        val button = findViewById<Button>(R.id.bjsr_terug)
+        val button_bjterug = findViewById<Button>(R.id.bjsr_terug)
 
-        button.setOnClickListener {
-            val doorsturen = Intent(this, activity_spelregels_blackjack::class.java)
-            startActivity(doorsturen)
+        button_bjterug.setOnClickListener {
+            val bjterug = Intent(this, activity_spelomschrijving_blackjack::class.java)
+            startActivity(bjterug)
         }
     }
 }
