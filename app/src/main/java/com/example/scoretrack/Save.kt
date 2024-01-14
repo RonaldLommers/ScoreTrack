@@ -1,10 +1,5 @@
 package com.example.scoretrack
 
-import java.sql.Array
-import java.sql.Time
-import java.sql.Date
-import java.util.Objects
-
 data class SubSave(
     val datumHervat: String,
     val datumOpgeslagen: String,
