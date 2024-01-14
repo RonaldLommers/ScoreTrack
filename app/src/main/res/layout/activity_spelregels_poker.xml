@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#f2ebd0"
+    android:layout_height="match_parent"
+    tools:context=".activity_spelregels_poker">
+
+
+    <Button
+        android:id="@+id/posr_terug"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:text="Terug"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/spelregelsbj"
+        android:layout_width="323dp"
+        android:layout_height="354dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:text="Poker:
+Doel van het spel:\n
+Verzamel de beste combinatie van vijf kaarten om te winnen.\n\n
+Kaartwaarden:\n
+Hoog naar laag: Aas, Koning, Vrouw, Boer, 10 tot 2.\n\n
+Spelverloop:\n
+Spelers ontvangen twee gesloten kaarten (hole cards).
+Er volgen inzetrondes na het delen van gemeenschappelijke kaarten (flop, turn, river).\n\n
+Spelers kunnen inzetten, passen, verhogen of zich terugtrekken.
+De speler met de beste hand wint de pot.
+"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
