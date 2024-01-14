@@ -117,7 +117,6 @@ class BlackjackGame : AppCompatActivity() {
     private fun initializePlayerViews() {
         val constraintLayout = findViewById<ConstraintLayout>(R.id.mainLayout)
 
-        // Initialize player views based on the number of players
         playerIcons = arrayOfNulls(players.size)
         playerNames = arrayOfNulls(players.size)
         playerStakes = arrayOfNulls(players.size)
@@ -125,7 +124,7 @@ class BlackjackGame : AppCompatActivity() {
 
         for (i in players.indices) {
             val player = players[i]
-            val playerIndex = i + 1 // Player index starts from 1
+            val playerIndex = i + 1
 
             playerIcons[i] = constraintLayout.findViewById(
                 resources.getIdentifier("playerIcon$playerIndex", "id", packageName))
@@ -141,7 +140,6 @@ class BlackjackGame : AppCompatActivity() {
             playerBets[i]?.text = "Bet: 0"
         }
 
-        // Hide views for non-existent players
         for (i in players.size + 1..6) {
             val playerIconId = resources.getIdentifier("playerIcon$i", "id", packageName)
             val playerNameId = resources.getIdentifier("playerName$i", "id", packageName)
@@ -160,7 +158,7 @@ class BlackjackGame : AppCompatActivity() {
     private fun addPlayerViews(constraintLayout: ConstraintLayout) {
         for (i in players.indices) {
             val player = players[i]
-            val playerIndex = i + 1 // Player index starts from 1
+            val playerIndex = i + 1
 
             playerIcons[i] = constraintLayout.findViewById(
                 resources.getIdentifier("playerIcon$playerIndex", "id", packageName))
