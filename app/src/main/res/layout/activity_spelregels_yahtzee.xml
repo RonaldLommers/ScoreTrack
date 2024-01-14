@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#f2ebd0"
+    android:layout_height="match_parent"
+    tools:context=".activity_spelregels_blackjack">
+
+
+    <Button
+        android:id="@+id/bjsr_terug"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:text="Back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/spelregelsbj"
+        android:layout_width="313dp"
+        android:layout_height="666dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:text="1.	Start of the Turn:\n
+•	The player rolls all five dice. \n
+•	After the first roll, the player can choose to keep certain dice and re-roll only the remaining ones. \n\n
+2.	Second and Third Rolls: \n
+•	After the second roll, the player can again choose to keep certain dice for the final roll. \n
+•	After the third roll, the final combination of the five dice is determined. \n\n
+3.	Scoring: \n
+•	The player selects a category on the Yahtzee score sheet or in the ScoreTrack app in which to place their roll. \n
+•	The score is determined based on the rules for that specific category. \n\n
+4.	Categories: \n
+•	Some categories include Aces (ones), Twos (twos), ..., Sixes (sixes), \n where the score is equal to the total number of dice showing the \n corresponding number of pips. \n
+•	Other categories include  of a Kind (three dice of the same \n value), four of a Kind (four dice of the same value), Full House \n (three of one kind and two of another), Small Straight (four sequential\n dice), Large Straight (five sequential dice), and Yahtzee (five of a kind). \n\n
+5.	Bonus and Extra Yahtzee: \n
+•	Bonus points are earned if the sum of the upper section is 63 or more. \n
+\n
+6.	End of the Game: \n
+	The game ends when all categories are filled. \n
+	The player with the highest total score wins. \n
+"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.8" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

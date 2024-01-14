@@ -13,6 +13,12 @@
         android:theme="@style/Theme.ScoreTrack"
         tools:targetApi="31">
         <activity
+            android:name=".activity_spelregels_yahtzee"
+            android:exported="false" />
+        <activity
+            android:name=".activity_spelomschrijving_yahtzee"
+            android:exported="false" />
+        <activity
             android:name=".activity_spelregels_poker"
             android:exported="false" />
         <activity
