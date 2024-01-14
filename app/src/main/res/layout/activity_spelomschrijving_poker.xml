@@ -23,7 +23,7 @@
         android:layout_height="354dp"
         android:background="#FFFFFF"
         android:gravity="center"
-        android:text="Poker is een kaartspel waarbij spelers wedden op de waarde van hun hand..."
+        android:text="Poker is a card game where players bet on the value of their hand..."
         app:layout_constraintTop_toBottomOf="@id/titel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -32,7 +32,7 @@
         android:id="@+id/bj_terug"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="terug"
+        android:text="Back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/omschrijvingbj" />
 
@@ -40,7 +40,7 @@
         android:id="@+id/sluiten"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sluiten"
+        android:text="Close"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/omschrijvingbj" />
 
@@ -48,7 +48,7 @@
         android:id="@+id/spelregelsbj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Spelregels"
+        android:text="Rules"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
@@ -56,7 +56,7 @@
         android:id="@+id/bj_spelen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Spelen"
+        android:text="Play"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
