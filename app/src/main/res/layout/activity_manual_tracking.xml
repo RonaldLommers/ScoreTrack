@@ -12,7 +12,7 @@
         android:id="@+id/save"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:text="@string/back"
+        android:text="Back"
         android:backgroundTint="@color/lighter_green"
         android:minWidth="64dp"
         android:minHeight="48dp"/>

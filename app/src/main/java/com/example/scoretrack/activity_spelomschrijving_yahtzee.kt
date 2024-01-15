@@ -18,7 +18,7 @@ class activity_spelomschrijving_yahtzee : AppCompatActivity() {
 
         val startButton = findViewById<Button>(R.id.y_spelen)
         startButton.setOnClickListener {
-            val doorsturen = Intent(this, Blackjack::class.java)
+            val doorsturen = Intent(this, Yahtzee::class.java)
             startActivity(doorsturen)
         }
 
@@ -30,7 +30,7 @@ class activity_spelomschrijving_yahtzee : AppCompatActivity() {
 
         val spelregels = findViewById<Button>(R.id.spelregelsy)
         spelregels.setOnClickListener {
-            val intent = Intent(this, activity_spelregels_blackjack::class.java)
+            val intent = Intent(this, activity_spelregels_yahtzee::class.java)
             startActivity(intent)
         }
     }

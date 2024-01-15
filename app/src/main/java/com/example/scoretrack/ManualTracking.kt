@@ -206,7 +206,7 @@ class ManualTrackingActivity : AppCompatActivity() {
         //for now just go to saves
         val btnSave = findViewById<Button>(R.id.save)
         btnSave.setOnClickListener{
-            val intent = Intent(this, Saves::class.java)
+            val intent = Intent(this, spelkeuze::class.java)
             startActivity(intent)
         }
     }
